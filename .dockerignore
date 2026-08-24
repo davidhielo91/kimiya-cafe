@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.gitignore
+.env*
+Dockerfile
+.dockerignore
+README.md
+*.test.ts
+*.test.tsx
+vitest.config.mts
+vitest.setup.ts
+coverage
+npm-debug.log*

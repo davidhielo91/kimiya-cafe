@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/*
+  Sistema visual de Kimiya Café (DESIGN.md §3).
+  Base dominante negro/blanco; naranja solo como acento (CTA, highlights,
+  líneas, etiquetas, microinteracciones). Sin dark mode automático: la
+  identidad es deliberada, no dependiente de prefers-color-scheme.
+*/
+
+:root {
+  --color-orange: #fc4c02; /* energía y curiosidad — acento */
+  --color-black: #111111; /* carácter y sofisticación */
+  --color-white: #ffffff; /* claridad */
+  --color-gray: #808080; /* dimensión urbana */
+
+  --background: var(--color-white);
+  --foreground: var(--color-black);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--color-orange);
+  --color-ink: var(--color-black);
+  --color-muted: var(--color-gray);
+
+  /* Be Vietnam principal; serif editorial (Times) como contraste. */
+  --font-sans: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* Serif editorial protagonista: Times llevada a tamaño display. */
+.font-editorial {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+/* Eyebrow: etiqueta utilitaria que codifica un dato real, no decora. */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Firma de marca: el "hilo catalizador" naranja. */
+.catalyst-line {
+  background: var(--color-orange);
+}
+
+/* Accesibilidad: foco visible consistente (DESIGN.md §13). */
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Entrada sutil del hero (una sola, no scroll-jacking). */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Accesibilidad: respetar reduced motion (DESIGN.md §12). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
