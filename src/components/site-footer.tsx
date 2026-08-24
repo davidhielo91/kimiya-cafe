@@ -1,74 +1,153 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
+import { Container } from "@/components/container";
 import { siteConfig } from "@/lib/site";
 import { navItems } from "@/lib/nav";
-import { formatAddress } from "@/lib/format";
+import { formatAddress, weekHours } from "@/lib/format";
 
-// Pie de página con NAP consistente (SEO.md §13). No renderiza datos internos
-// ni marcadores TODO_CLIENT como texto visible (DEPLOYMENT.md §12).
+// Pie de página con NAP consistente y estructurado (SEO.md §13). Cada dato va
+// bajo su etiqueta. No renderiza datos internos ni marcadores TODO_CLIENT
+// (DEPLOYMENT.md §12): los días sin confirmar (sábado) se omiten.
 
 export function SiteFooter() {
-  const { contact } = siteConfig;
+  const { contact, address, social } = siteConfig;
+  const mapsQuery = encodeURIComponent(formatAddress());
+  const hours = weekHours().filter((row) => row.range !== null);
 
   return (
-    <footer className="mt-16 border-t border-black/10 bg-ink text-white">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-3">
-        <div>
-          <p className="text-lg font-semibold">{siteConfig.name}</p>
-          <p className="mt-2 max-w-xs font-serif text-sm text-white/70">
+    <footer className="mt-20 border-t border-black/10 bg-ink text-white">
+      <Container className="grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
+        {/* Marca */}
+        <div className="lg:pr-6">
+          <p className="font-editorial text-2xl">{siteConfig.name}</p>
+          <p className="mt-3 max-w-xs font-serif text-sm leading-relaxed text-white/60">
             {siteConfig.brandPhrase}
           </p>
         </div>
 
-        <nav aria-label="Navegación del pie">
+        {/* Explorar */}
+        <FooterCol label="Explorar">
           <ul className="space-y-2 text-sm">
             {navItems.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-white/80 hover:text-brand">
+                <Link
+                  href={item.href}
+                  className="text-white/80 transition-colors hover:text-brand"
+                >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-        </nav>
+        </FooterCol>
 
-        <address className="text-sm not-italic text-white/80">
-          <p>{formatAddress()}</p>
-          <p className="mt-2">
-            <a href={`tel:+52${contact.phone}`} className="hover:text-brand">
-              {contact.phone}
-            </a>
-          </p>
-          <p>
-            <a href={`mailto:${contact.email}`} className="hover:text-brand">
-              {contact.email}
-            </a>
-          </p>
-          <p className="mt-3 flex gap-4">
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand"
-            >
-              Instagram
-            </a>
-            <a
-              href={siteConfig.social.googleBusiness}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand"
-            >
-              Google Maps
-            </a>
-          </p>
-        </address>
-      </div>
+        {/* Contacto */}
+        <FooterCol label="Contacto">
+          <div className="space-y-5 text-sm">
+            <div>
+              <p className="eyebrow text-white/40">Dirección</p>
+              <address className="mt-1.5 not-italic leading-relaxed text-white/80">
+                {address.street}
+                <br />
+                {address.neighborhood}, CP {address.postalCode}
+                <br />
+                {address.city}, {address.state}
+              </address>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1.5 inline-block text-brand hover:underline"
+              >
+                Cómo llegar →
+              </a>
+            </div>
 
+            <div>
+              <p className="eyebrow text-white/40">Teléfono</p>
+              <a
+                href={`tel:+52${contact.phone}`}
+                className="mt-1.5 inline-block text-white/80 hover:text-brand"
+              >
+                {contact.phone}
+              </a>
+            </div>
+
+            <div>
+              <p className="eyebrow text-white/40">Correo</p>
+              <a
+                href={`mailto:${contact.email}`}
+                className="mt-1.5 inline-block break-all text-white/80 hover:text-brand"
+              >
+                {contact.email}
+              </a>
+            </div>
+          </div>
+        </FooterCol>
+
+        {/* Horario + Redes */}
+        <FooterCol label="Horario">
+          <dl className="text-sm">
+            {hours.map((row) => (
+              <div
+                key={row.day}
+                className="flex justify-between gap-4 py-1 text-white/80"
+              >
+                <dt>{row.day}</dt>
+                <dd className="tabular-nums text-white/60">{row.range}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="mt-6">
+            <p className="eyebrow text-white/40">Síguenos</p>
+            <div className="mt-2 flex gap-4 text-sm">
+              <a
+                href={social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-brand"
+              >
+                Instagram
+              </a>
+              <a
+                href={social.googleBusiness}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-brand"
+              >
+                Google Maps
+              </a>
+            </div>
+          </div>
+        </FooterCol>
+      </Container>
+
+      {/* Barra inferior */}
       <div className="border-t border-white/10">
-        <p className="mx-auto max-w-6xl px-4 py-4 text-xs text-white/50">
-          © {new Date().getFullYear()} {siteConfig.name}. Morelia, Michoacán.
-        </p>
+        <Container className="flex flex-col gap-1 py-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos
+            reservados.
+          </p>
+          <p>Café de especialidad en Morelia · Chapultepec</p>
+        </Container>
       </div>
     </footer>
+  );
+}
+
+function FooterCol({
+  label,
+  children,
+}: {
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <p className="eyebrow mb-4 text-brand">{label}</p>
+      {children}
+    </div>
   );
 }

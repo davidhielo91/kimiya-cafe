@@ -13,15 +13,25 @@ import { join } from "node:path";
 // placeholder neutral. Al subir el archivo, la imagen aparece sin tocar nada.
 
 export type ImageSlot =
+  | "hero"
   | "coldBrew"
   | "grano"
   | "metodos"
   | "talleres"
-  | "espresso";
+  | "espresso"
+  | "comunidad";
 
 type SlotDef = { base: string; alt: string };
 
 const SLOTS: Record<ImageSlot, SlotDef> = {
+  hero: {
+    base: "hero",
+    alt: "Ambiente cálido alrededor de una taza de café de especialidad.",
+  },
+  comunidad: {
+    base: "comunidad",
+    alt: "Persona con un estilo de vida activo disfrutando un café para llevar.",
+  },
   coldBrew: {
     base: "cold-brew",
     alt: "Café frío servido sobre hielo en un vaso de vidrio.",

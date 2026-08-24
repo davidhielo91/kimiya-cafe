@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/container";
 import { SlotImage } from "@/components/slot-image";
+import { getImage } from "@/content/images";
 import { JsonLd } from "@/components/json-ld";
 import { localBusinessJsonLd } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
@@ -25,6 +27,8 @@ export const metadata: Metadata = {
 // la capa de datos (AGENTS.md §7). El naranja actúa como catalizador/acento.
 
 export default function HomePage() {
+  const heroImg = getImage("hero");
+  const comunidadImg = getImage("comunidad");
   const coldBrew = menuByCategory("cold-brew");
   const priceRange = `${formatPrice(grainInfo.priceRangeMxn.min)} – ${formatPrice(
     grainInfo.priceRangeMxn.max,
@@ -36,12 +40,24 @@ export default function HomePage() {
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-ink text-white">
-        {/* Hilo catalizador: firma de marca. */}
-        <div
-          aria-hidden
-          className="catalyst-line absolute top-0 left-6 h-full w-px opacity-70 md:left-10"
-        />
-        <Container className="animate-rise py-24 md:py-36">
+        {heroImg && (
+          <>
+            <Image
+              src={heroImg.src}
+              alt={heroImg.alt}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            {/* Overlay para contraste del texto (accesibilidad). */}
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40"
+            />
+          </>
+        )}
+        <Container className="relative z-10 animate-rise py-24 md:py-36">
           <p className="eyebrow text-brand">
             Morelia · Chapultepec · García de León
           </p>
@@ -242,8 +258,20 @@ export default function HomePage() {
       </Editorial>
 
       {/* ── Comunidad · promociones ──────────────────────────── */}
-      <section className="border-t border-black/10 bg-ink text-white">
-        <Container className="py-20 md:py-28">
+      <section className="relative overflow-hidden border-t border-black/10 bg-ink text-white">
+        {comunidadImg && (
+          <>
+            <Image
+              src={comunidadImg.src}
+              alt={comunidadImg.alt}
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div aria-hidden className="absolute inset-0 bg-ink/80" />
+          </>
+        )}
+        <Container className="relative z-10 py-20 md:py-28">
           <p className="eyebrow text-brand">Comunidad</p>
           <h2 className="font-editorial mt-4 text-[clamp(2rem,5vw,3.25rem)] leading-tight">
             Kilómetros, lealtad y cumpleaños

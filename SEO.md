@@ -148,7 +148,7 @@ Cluster:
 
 No atacar `curso barista Morelia` como keyword principal: la intención observada es capacitación profesional y no coincide con la oferta actual.
 
-Precio confirmado: $250 MXN por persona. Condiciones confirmadas: reservación anticipada y mínimo 4 participantes. Canal exacto de reserva: `TODO_CLIENT`.
+Precio confirmado: $250 MXN por persona. Condiciones confirmadas: reservación anticipada y mínimo 4 participantes. Canal exacto de reserva: presencialmente en el local.
 
 ## 9. Cold Brew
 

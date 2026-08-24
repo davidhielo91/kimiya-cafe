@@ -1,9 +1,14 @@
 # Image Prompts — Kimiya Café
 
-Detailed English prompts to generate the site's **6 provisional images** in
+Detailed English prompts to generate the site's provisional images in
 ChatGPT / DALL·E, Midjourney, or similar. These are temporary AI placeholders
 until the real Kimiya Café photographs arrive — they must **not** depict the
 actual venue, real products, real workshops, or identifiable real people.
+
+> **What NOT to generate with AI:** the storefront/façade, interior, the bar,
+> the team/baristas, or real customers. The client already has real photos of
+> the venue — faking those would be dishonest. Use the real ones there; AI is
+> only for generic product/atmosphere shots.
 
 ## How to use
 
@@ -159,6 +164,54 @@ Negative: no text, no logos, no watermark, no faces, no clutter, no cartoon.
 
 ---
 
+## 7 · Hero (homepage) — RECOMENDADA
+
+- **File:** `hero.jpg`
+- **Size:** 1920×1080 px · **Horizontal 16:9** · Midjourney `--ar 16:9`
+- **Where:** Homepage hero (imagen de fondo; el texto va encima a la izquierda)
+- **Nota:** el hero funciona hoy sin imagen (fondo negro tipográfico). Con esta
+  foto se vuelve fotográfico. El **lado izquierdo debe quedar más oscuro/simple**
+  para que el título blanco encima sea legible; el interés visual va a la derecha.
+
+```
+Editorial hero photograph for a specialty coffee shop. A warm, inviting
+close-up of a barista's hands (no face) finishing a pour-over coffee, or a
+beautifully served cup with latte art on a dark wooden counter, soft steam
+rising. Moody natural window light coming from the right, so the LEFT SIDE of
+the frame falls into deep shadow / near-black for text overlay. Rich charcoal
+tones with warm highlights and a subtle warm-orange accent. Cinematic, shallow
+depth of field, generous empty dark space on the left third.
+Photorealistic, 35mm lens, f/2.0, high detail, artisanal and urban mood.
+Negative: no text, no logos, no watermark, no identifiable faces, no clutter,
+no cartoon, no 3D render.
+--ar 16:9
+```
+
+---
+
+## 8 · Comunidad (homepage) — OPCIONAL
+
+- **File:** `comunidad.jpg`
+- **Size:** 1920×1080 px · **Horizontal 16:9** · Midjourney `--ar 16:9`
+- **Where:** Homepage, sección "Comunidad" (fondo con overlay oscuro)
+- **Nota:** refuerza el diferenciador de vida activa (KILÓMETROS, corredores y
+  ciclistas). Es opcional; la sección funciona sin ella.
+
+```
+Editorial lifestyle photograph connecting coffee with an active lifestyle. A
+person in running or cycling gear (seen from behind or without a recognizable
+face) holding a takeaway coffee cup outdoors on a tree-lined boulevard at golden
+hour, warm natural light. Candid, energetic yet calm mood, urban and healthy
+feel. Composition with open space and a subtle warm-orange accent (the cup
+sleeve or clothing detail). Shallow depth of field, background softly blurred.
+Photorealistic, 50mm lens, f/2.2, high detail.
+Negative: no text, no logos, no watermark, no identifiable faces, no brand
+logos on clothing, no clutter, no cartoon.
+--ar 16:9
+```
+
+---
+
 ## Quick checklist
 
 - [ ] `cold-brew.jpg` — 1200×1500 (4:5)
@@ -167,6 +220,11 @@ Negative: no text, no logos, no watermark, no faces, no clutter, no cartoon.
 - [ ] `talleres.jpg` — 1920×1080 (16:9)
 - [ ] `menu-espresso.jpg` — 1800×1200 (3:2)
 - [ ] `og.jpg` — 1200×630 (1.91:1)
+- [ ] `hero.jpg` — 1920×1080 (16:9) · recomendada
+- [ ] `comunidad.jpg` — 1920×1080 (16:9) · opcional
 
 All files go in `public/images/`. Provisional AI images — replace with real
 Kimiya Café photography before production.
+
+**No generar con IA (usar fotos reales del cliente):** fachada, interior, barra,
+equipo/baristas y clientes reales.

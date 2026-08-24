@@ -170,7 +170,7 @@ Cada taller debe incluir:
 - duración si se confirma;
 - precio: $250 MXN por persona;
 - condición: reservación anticipada y mínimo 4 participantes;
-- canal exacto para reservar: `TODO_CLIENT`.
+- canal exacto para reservar: presencialmente en el local.
 
 No presentar los talleres como “curso profesional de barista”.
 

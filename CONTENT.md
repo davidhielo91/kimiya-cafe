@@ -171,7 +171,7 @@ Precio: $250 MXN por persona.
 
 Condiciones: reservación anticipada y mínimo de 4 participantes.
 
-Canal exacto de reserva: `TODO_CLIENT`.
+Canal exacto de reserva: presencialmente en el local.
 
 ### Ritual del Café
 
@@ -181,7 +181,7 @@ Precio: $250 MXN por persona.
 
 Condiciones: reservación anticipada y mínimo de 4 participantes.
 
-Canal exacto de reserva: `TODO_CLIENT`.
+Canal exacto de reserva: presencialmente en el local.
 
 ## 11. Promociones
 
@@ -232,7 +232,7 @@ Atributos:
 - reservaciones: solo eventos especiales;
 - cuatro mesas;
 - barra con cinco bancos;
-- capacidad sentada total: `TODO_CLIENT`.
+- capacidad sentada total: 20 personas.
 
 ## 13. Audiencia
 
@@ -286,13 +286,14 @@ Los activos marcados como disponibles por el cliente todavía deben centralizars
 
 **Verificar antes de publicar:** estadísticas externas sobre consumo de café, condiciones promocionales ambiguas y afirmaciones fuertes como contenido de cafeína cuando no exista respaldo.
 
-## 16. Datos pendientes esenciales
+## 16. Datos del cliente — estado
+
+Confirmados (cuestionario Notion, 24 ago 2026): capacidad 20 personas; reserva de talleres presencial en el local; fundación 2026; fechas clave (aniversario 20 mayo, Día Internacional del Café 1 octubre); Instagram y ficha de Google Business (CID).
+
+Pendientes esenciales (no inventar):
 
 - horario del sábado;
-- capacidad aproximada;
-- horarios de menor afluencia;
-- canal exacto para reservar talleres;
-- temporadas/fechas/eventos importantes;
+- precios individuales del menú;
+- aclaración de horarios de menor afluencia;
 - fotografías de productos y bebidas;
-- videos;
-- promociones o piezas gráficas existentes.
+- videos y piezas gráficas promocionales.

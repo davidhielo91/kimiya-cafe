@@ -25,7 +25,8 @@ export const siteConfig = {
 
   social: {
     instagram: "https://www.instagram.com/kimiya.cafe",
-    googleBusiness: "https://share.google/OjQAl7ULhkW2rTXt4",
+    // Enlace canónico a la ficha de Google Business por CID.
+    googleBusiness: "https://www.google.com/maps?cid=247101415948109667",
   },
 
   // Fechas relevantes del negocio (confirmadas en el cuestionario).

@@ -228,18 +228,23 @@ Regla:
 
 **Sol decide y revisa. Terra construye. Luna resuelve tareas pequeñas.**
 
-## 17. TODO_CLIENT actuales
+## 17. Estado de datos del cliente
 
-No deben bloquear infraestructura ni prototipo, pero sí producción de secciones dependientes:
+Confirmados desde el cuestionario de Notion (24 ago 2026):
+
+- capacidad sentada: 20 personas;
+- canal de reserva de talleres: presencialmente en el local;
+- fundación: 2026;
+- fechas clave: aniversario 20 de mayo; Día Internacional del Café 1 de octubre;
+- Instagram y ficha de Google Business (CID) confirmados.
+
+Pendientes (mantener `TODO_CLIENT`; no inventar; no bloquean prototipo pero sí la producción de las secciones dependientes):
 
 - horario del sábado;
-- capacidad aproximada;
-- horarios de menor afluencia;
-- canal exacto para reservar talleres;
-- temporadas/eventos importantes;
-- fotografías de productos y bebidas;
-- videos disponibles;
-- promociones o piezas gráficas existentes.
+- precios individuales del menú;
+- aclaración de horarios de menor afluencia;
+- fotografías reales de productos y bebidas;
+- videos y piezas gráficas promocionales.
 
 ## 18. No hacer en fase 1
 

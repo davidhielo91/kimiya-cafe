@@ -111,7 +111,7 @@ Producto prioritario y de alto interés. Variantes presentes en el menú incluye
 
 **Precio:** $250 MXN por persona  
 **Condiciones:** reservación anticipada; mínimo 4 participantes  
-**Canal exacto de reserva:** TODO_CLIENT
+**Canal exacto de reserva:** presencialmente en el local
 
 ### Alimentos
 
@@ -166,7 +166,7 @@ Presentando identificación oficial que compruebe la fecha, el cliente puede rec
 - Estacionamiento propio: no.
 - Reservaciones: únicamente para eventos especiales.
 - Espacio conocido: cuatro mesas y barra con cinco bancos.
-- Capacidad total sentada: TODO_CLIENT.
+- Capacidad total sentada: 20 personas.
 
 ## 9. Nombre público de la marca
 
