@@ -21,7 +21,7 @@ export default function TalleresPage() {
     <>
       <PageHeader
         eyebrow="Experiencias · reservación anticipada"
-        title="Talleres para descubrir"
+        title="Talleres y catas de café en Morelia"
         lede="Acércate al café de especialidad de forma práctica y sin pretensión. Curiosidad antes que tecnicismo."
       />
 

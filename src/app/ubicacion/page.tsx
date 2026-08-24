@@ -39,8 +39,8 @@ export default function UbicacionPage() {
       <JsonLd data={localBusinessJsonLd()} />
 
       <PageHeader
-        eyebrow="Chapultepec · García de León"
-        title="Visítanos"
+        eyebrow="Visítanos · García de León"
+        title="Cafetería en Chapultepec, Morelia"
         lede={formatAddress()}
       />
 

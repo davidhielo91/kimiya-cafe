@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/site";
+import { getOgImage } from "@/content/images";
 
 // Schema JSON-LD para SEO local (SEO.md §12–13).
 //
@@ -28,13 +29,18 @@ export function localBusinessJsonLd() {
       closes: h!.close,
     }));
 
+  const ogImage = getOgImage();
+
   return {
     "@context": "https://schema.org",
     "@type": "CafeOrCoffeeShop",
     name: siteConfig.name,
     url: siteConfig.url,
+    ...(ogImage ? { image: `${siteConfig.url}${ogImage}` } : {}),
     telephone: `+52${siteConfig.contact.phone}`,
     email: siteConfig.contact.email,
+    hasMenu: `${siteConfig.url}/menu`,
+    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
       streetAddress: a.street,

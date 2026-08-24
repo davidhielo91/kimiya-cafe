@@ -25,7 +25,7 @@ export default function CafeEnGranoPage() {
     <>
       <PageHeader
         eyebrow="Para llevar · selección rotativa"
-        title="Café en grano de especialidad"
+        title="Café en grano de especialidad en Morelia"
         lede="Distintos orígenes, variedades y procesos —lavado, honey, natural y experimentales— según disponibilidad. Molienda a tu método."
       />
 
