@@ -43,3 +43,10 @@ next-env.d.ts
 # herramientas locales de skills (no forman parte del sitio)
 /.claude/skills/
 /skills-lock.json
+
+# documentos de negocio (fuente de verdad en Notion; no versionar)
+/PRODUCT.md
+/CONTENT.md
+/SEO.md
+/DEPLOYMENT.md
+/IMAGE-PROMPTS.md

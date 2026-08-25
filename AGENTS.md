@@ -12,6 +12,11 @@ Antes de modificar código, leer:
 4. `DESIGN.md`;
 5. `DEPLOYMENT.md`.
 
+> Nota: por contener estrategia interna, `PRODUCT.md`, `SEO.md`, `CONTENT.md`,
+> `DEPLOYMENT.md` e `IMAGE-PROMPTS.md` **no se versionan en el repositorio**. Su
+> fuente de verdad está en Notion; solicítalos ahí si trabajas desde un clon
+> limpio. `AGENTS.md` y `DESIGN.md` sí permanecen en el repo.
+
 ## 2. Regla principal
 
 **Nombre oficial de marca: `Kimiya Café`.** Usar exactamente esta forma en contenido público, metadata, schema y documentación; omitir acentos solo en identificadores técnicos que lo exijan, como dominios, URLs, slugs o nombres de repositorio.
