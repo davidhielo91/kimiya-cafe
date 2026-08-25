@@ -4,9 +4,9 @@ import { PageHeader } from "@/components/page-header";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Nosotros",
+  title: "Nosotros: café, curiosidad y comunidad",
   description:
-    "Kimiya nace de la curiosidad por entender el café más allá de una bebida cotidiana. Café de especialidad accesible, honesto y entretenido en Morelia.",
+    "Kimiya nace de la curiosidad por el café de especialidad. Conoce nuestra filosofía: descubrir, aprender y compartir sin pretensión, en Morelia.",
   alternates: { canonical: "/nosotros" },
 };
 

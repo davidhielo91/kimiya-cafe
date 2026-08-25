@@ -8,7 +8,7 @@ import { formatPrice } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Café en grano de especialidad",
   description:
-    "Selección rotativa de café en grano de especialidad en Morelia. Distintos orígenes y procesos, presentación de 250 g y molienda según método.",
+    "Compra café en grano de especialidad en Morelia: selección rotativa de orígenes y procesos, en 250 g y molido a tu método. Descubre algo nuevo cada mes.",
   alternates: { canonical: "/cafe-en-grano" },
 };
 

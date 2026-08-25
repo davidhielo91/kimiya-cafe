@@ -7,9 +7,9 @@ import { siteConfig } from "@/lib/site";
 import { formatAddress, weekHours } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Ubicación y cómo llegar",
+  title: "Cafetería en Chapultepec, Morelia",
   description:
-    "Kimiya Café está en Blvd. García de León 1201-A, Chapultepec Oriente, Morelia. Horarios, atributos y cómo llegar.",
+    "Visítanos en Blvd. García de León 1201-A, Chapultepec, Morelia. Wi-Fi, pet friendly y para llevar. Consulta horarios y cómo llegar a Kimiya Café.",
   alternates: { canonical: "/ubicacion" },
 };
 
@@ -60,6 +60,17 @@ export default function UbicacionPage() {
             Llamar {contact.phone}
           </a>
         </div>
+
+        <iframe
+          title="Ubicación de Kimiya Café en Google Maps"
+          src={`https://www.google.com/maps?q=${encodeURIComponent(
+            formatAddress(),
+          )}&output=embed`}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+          className="mt-12 h-72 w-full rounded-lg border border-black/10 md:h-96"
+        />
 
         <div className="mt-16 grid gap-12 md:grid-cols-2">
           <section>

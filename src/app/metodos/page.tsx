@@ -5,9 +5,9 @@ import { SlotImage } from "@/components/slot-image";
 import { methods } from "@/content/methods";
 
 export const metadata: Metadata = {
-  title: "Métodos de extracción",
+  title: "Métodos de extracción: V60, Chemex y más",
   description:
-    "V60, Chemex, Kalita, AeroPress, Switch, sifón japonés y más. Conoce el Brew Bar de Kimiya Café y cómo cada método cambia la taza.",
+    "Conoce el Brew Bar de Kimiya Café: V60, Chemex, Kalita, AeroPress, sifón japonés y más. Aprende cómo cada método cambia el sabor de tu taza.",
   alternates: { canonical: "/metodos" },
 };
 

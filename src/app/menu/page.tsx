@@ -7,9 +7,9 @@ import { formatPrice } from "@/lib/format";
 import type { MenuCategory } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Menú",
+  title: "Menú: cold brew, espresso y filtrados",
   description:
-    "Espresso bar, cold brew, brew bar y alimentos en Kimiya Café, Morelia. Descubre nuestra oferta de café de especialidad.",
+    "Espresso bar, cold brew, brew bar y postres en Kimiya Café, Morelia. Bebidas de especialidad frías y calientes para descubrir en cada visita.",
   alternates: { canonical: "/menu" },
 };
 

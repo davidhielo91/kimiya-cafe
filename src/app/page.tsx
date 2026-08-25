@@ -16,9 +16,9 @@ import { roasters, grainInfo } from "@/content/coffees";
 import { formatPrice } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Café de especialidad en Morelia",
+  title: { absolute: "Café de especialidad en Morelia | Kimiya Café" },
   description:
-    "Kimiya Café: cafetería de especialidad en Chapultepec, Morelia. Cold brew, café en grano, métodos de extracción y talleres para descubrir el café.",
+    "Cafetería de especialidad en Morelia, en Chapultepec sobre García de León. Descubre cold brew, café en grano, métodos de extracción y talleres de café.",
   alternates: { canonical: "/" },
 };
 

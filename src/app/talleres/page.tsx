@@ -6,9 +6,9 @@ import { workshops } from "@/content/workshops";
 import { formatPrice } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Talleres y catas de café",
+  title: "Talleres y catas de café en Morelia",
   description:
-    "Experiencia Sensorial y Ritual del Café: talleres para descubrir y experimentar el café de especialidad en Morelia. $250 MXN por persona.",
+    "Talleres y catas de café en Morelia: Experiencia Sensorial y Ritual del Café. Aprende a descubrir aromas y métodos, sin ser experto. $250 MXN por persona.",
   alternates: { canonical: "/talleres" },
 };
 
