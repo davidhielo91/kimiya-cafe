@@ -3,9 +3,9 @@ import { render, screen } from "@testing-library/react";
 import { SiteHeader } from "@/components/site-header";
 
 describe("SiteHeader", () => {
-  it("renderiza el nombre oficial de marca con acento", () => {
+  it("muestra el logo con el nombre oficial de marca (alt) con acento", () => {
     render(<SiteHeader />);
-    expect(screen.getAllByText("Kimiya Café").length).toBeGreaterThan(0);
+    expect(screen.getAllByAltText("Kimiya Café").length).toBeGreaterThan(0);
   });
 
   it("expone las rutas de navegación de fase 1", () => {
