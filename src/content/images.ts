@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 // Capa de imágenes desacoplada (DESIGN.md §10.1 / §11).
@@ -77,8 +77,23 @@ export function getImage(slot: ImageSlot): SiteImage | null {
   return { src: `/images/${file}`, alt: def.alt };
 }
 
-/** Ruta de la imagen Open Graph (og.*) si existe, o null. */
-export function getOgImage(): string | null {
+export type OgImage = { url: string; width: number; height: number };
+
+/** Imagen Open Graph (og.*) con dimensiones reales del archivo, o null. */
+export function getOgImage(): OgImage | null {
   const file = resolveFile("og");
-  return file ? `/images/${file}` : null;
+  if (!file) return null;
+  let width = 1200;
+  let height = 630;
+  if (file.endsWith(".png")) {
+    // Dimensiones desde el IHDR del PNG (bytes 16/20).
+    try {
+      const buf = readFileSync(join(process.cwd(), "public", "images", file));
+      width = buf.readUInt32BE(16);
+      height = buf.readUInt32BE(20);
+    } catch {
+      /* usa los valores por defecto */
+    }
+  }
+  return { url: `/images/${file}`, width, height };
 }
