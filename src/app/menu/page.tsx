@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { SlotImage } from "@/components/slot-image";
@@ -98,6 +99,24 @@ export default function MenuPage() {
             );
           })}
         </div>
+
+        <p className="mt-14 max-w-2xl text-foreground/70">
+          ¿Quieres llevarte café a casa? Explora nuestra{" "}
+          <Link
+            href="/cafe-en-grano"
+            className="text-brand-ink underline underline-offset-4"
+          >
+            selección de café en grano
+          </Link>{" "}
+          o vive un{" "}
+          <Link
+            href="/talleres"
+            className="text-brand-ink underline underline-offset-4"
+          >
+            taller de café
+          </Link>
+          .
+        </p>
       </Container>
     </>
   );

@@ -6,7 +6,11 @@ import { Container } from "@/components/container";
 import { SlotImage } from "@/components/slot-image";
 import { getImage } from "@/content/images";
 import { JsonLd } from "@/components/json-ld";
-import { localBusinessJsonLd } from "@/lib/schema";
+import {
+  localBusinessJsonLd,
+  organizationJsonLd,
+  websiteJsonLd,
+} from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import { menuByCategory } from "@/content/menu";
 import { methods } from "@/content/methods";
@@ -37,6 +41,8 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={localBusinessJsonLd()} />
+      <JsonLd data={organizationJsonLd()} />
+      <JsonLd data={websiteJsonLd()} />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-ink text-white">

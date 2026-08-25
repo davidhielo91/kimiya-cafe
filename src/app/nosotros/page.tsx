@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { siteConfig } from "@/lib/site";
@@ -38,6 +39,23 @@ export default function NosotrosPage() {
               Buscamos acercar el café de especialidad a más personas de manera
               accesible, honesta y entretenida. No necesitas ser experto para
               disfrutar un buen café.
+            </p>
+            <p className="text-foreground/70">
+              Descúbrelo en nuestros{" "}
+              <Link
+                href="/talleres"
+                className="text-brand-ink underline underline-offset-4"
+              >
+                talleres
+              </Link>{" "}
+              o llévate un{" "}
+              <Link
+                href="/cafe-en-grano"
+                className="text-brand-ink underline underline-offset-4"
+              >
+                café en grano
+              </Link>{" "}
+              para casa.
             </p>
           </div>
 

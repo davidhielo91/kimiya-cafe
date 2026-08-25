@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { SlotImage } from "@/components/slot-image";
+import { Faq } from "@/components/faq";
+import { JsonLd } from "@/components/json-ld";
+import { faqJsonLd, type FaqItem } from "@/lib/schema";
 import { coffees, roasters, producers, grainInfo } from "@/content/coffees";
 import { formatPrice } from "@/lib/format";
 
@@ -16,6 +20,29 @@ export const metadata: Metadata = {
 // rotativa: el catálogo (`coffees`) se llena con lo realmente disponible sin
 // cambiar el layout. No se afirma disponibilidad simultánea de todos.
 
+const faqs: FaqItem[] = [
+  {
+    q: "¿Qué presentaciones de café en grano manejan?",
+    a: "La selección rotativa viene en 250 g. Además, nuestro blend de la casa está disponible en presentación de 1 kg.",
+  },
+  {
+    q: "¿Muelen el café?",
+    a: "Sí, molemos el café según tu método de preparación (espresso, prensa francesa, V60, Chemex, entre otros).",
+  },
+  {
+    q: "¿Cada cuánto cambia la selección?",
+    a: "No hay una temporada fija, pero la intención es incorporar nuevas opciones aproximadamente cada mes.",
+  },
+  {
+    q: "¿Cuánto cuesta el café en grano?",
+    a: "El rango aproximado es de $150 a $500 por 250 g, según las características de cada café.",
+  },
+  {
+    q: "¿Qué procesos de café manejan?",
+    a: "Lavado, honey, natural y procesos experimentales según disponibilidad.",
+  },
+];
+
 export default function CafeEnGranoPage() {
   const priceRange = `${formatPrice(grainInfo.priceRangeMxn.min)} – ${formatPrice(
     grainInfo.priceRangeMxn.max,
@@ -23,6 +50,7 @@ export default function CafeEnGranoPage() {
 
   return (
     <>
+      <JsonLd data={faqJsonLd(faqs)} />
       <PageHeader
         eyebrow="Para llevar · selección rotativa"
         title="Café en grano de especialidad en Morelia"
@@ -99,6 +127,19 @@ export default function CafeEnGranoPage() {
             </ul>
           </div>
         </section>
+
+        <p className="mt-12 max-w-2xl text-foreground/70">
+          ¿Quieres sacarle el máximo en casa? Conoce los{" "}
+          <Link
+            href="/metodos"
+            className="text-brand-ink underline underline-offset-4"
+          >
+            métodos de extracción
+          </Link>{" "}
+          y pídelo molido para el tuyo.
+        </p>
+
+        <Faq items={faqs} />
       </Container>
     </>
   );

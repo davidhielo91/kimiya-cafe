@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { SlotImage } from "@/components/slot-image";
+import { Faq } from "@/components/faq";
+import { JsonLd } from "@/components/json-ld";
+import { faqJsonLd, type FaqItem } from "@/lib/schema";
 import { workshops } from "@/content/workshops";
 import { formatPrice } from "@/lib/format";
 
@@ -16,9 +20,33 @@ export const metadata: Metadata = {
 // "curso profesional de barista". El canal de reserva es TODO_CLIENT: mientras
 // sea null, se ofrece contacto directo sin publicar el marcador.
 
+const faqs: FaqItem[] = [
+  {
+    q: "¿Cómo reservo un taller?",
+    a: "La reservación se hace directamente en el local, de forma anticipada.",
+  },
+  {
+    q: "¿Cuánto cuestan los talleres?",
+    a: "$250 MXN por persona.",
+  },
+  {
+    q: "¿Cuántas personas se necesitan?",
+    a: "Un mínimo de 4 participantes por taller.",
+  },
+  {
+    q: "¿Necesito saber de café para tomarlos?",
+    a: "No. Están pensados para descubrir y aprender sin necesidad de ser experto.",
+  },
+  {
+    q: "¿Qué talleres ofrecen?",
+    a: "Dos experiencias: Experiencia Sensorial (origen, procesos, tueste y percepción) y Ritual del Café (cómo cambia una taza según el método y las variables de preparación).",
+  },
+];
+
 export default function TalleresPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(faqs)} />
       <PageHeader
         eyebrow="Experiencias · reservación anticipada"
         title="Talleres y catas de café en Morelia"
@@ -75,9 +103,20 @@ export default function TalleresPage() {
         </div>
 
         <p className="mt-14 max-w-xl text-foreground/70">
-          Las reservaciones se hacen <span className="text-foreground">directamente en el local</span>.
-          Pasa a Kimiya y con gusto coordinamos tu experiencia.
+          Las reservaciones se hacen{" "}
+          <span className="text-foreground">directamente en el local</span>. Pasa
+          a Kimiya y con gusto coordinamos tu experiencia. Mientras tanto,
+          descubre los{" "}
+          <Link
+            href="/metodos"
+            className="text-brand-ink underline underline-offset-4"
+          >
+            métodos de extracción
+          </Link>{" "}
+          que exploramos.
         </p>
+
+        <Faq items={faqs} />
       </Container>
     </>
   );

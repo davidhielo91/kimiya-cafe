@@ -61,3 +61,41 @@ export function localBusinessJsonLd() {
     openingHoursSpecification,
   };
 }
+
+/** Organization para señales de marca / knowledge panel (home). */
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/images/logo-kimiya-cafe-oscuro.png`,
+    sameAs: [siteConfig.social.instagram, siteConfig.social.googleBusiness],
+  };
+}
+
+/** WebSite para identidad del sitio (home). */
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    inLanguage: "es-MX",
+  };
+}
+
+export type FaqItem = { q: string; a: string };
+
+/** FAQPage a partir de preguntas confirmadas. */
+export function faqJsonLd(items: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}

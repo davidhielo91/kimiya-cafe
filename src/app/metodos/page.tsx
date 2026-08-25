@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { SlotImage } from "@/components/slot-image";
@@ -44,6 +45,24 @@ export default function MetodosPage() {
             </li>
           ))}
         </ul>
+
+        <p className="mt-12 max-w-2xl text-foreground/70">
+          Preparamos con estos métodos nuestra{" "}
+          <Link
+            href="/cafe-en-grano"
+            className="text-brand-ink underline underline-offset-4"
+          >
+            selección de café en grano
+          </Link>{" "}
+          y las bebidas del{" "}
+          <Link
+            href="/menu"
+            className="text-brand-ink underline underline-offset-4"
+          >
+            menú
+          </Link>
+          .
+        </p>
       </Container>
     </>
   );

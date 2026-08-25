@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { JsonLd } from "@/components/json-ld";
-import { localBusinessJsonLd } from "@/lib/schema";
+import { Faq } from "@/components/faq";
+import { localBusinessJsonLd, faqJsonLd, type FaqItem } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import { formatAddress, weekHours } from "@/lib/format";
 
@@ -29,6 +30,33 @@ const attributes: string[] = [
     ? `Aforo aproximado: ${siteConfig.attributes.seatedCapacity} personas`
     : "",
 ].filter(Boolean);
+
+const faqs: FaqItem[] = [
+  {
+    q: "¿Kimiya Café es pet friendly?",
+    a: "Sí. Aceptamos perros siempre que permanezcan con su correa.",
+  },
+  {
+    q: "¿Tienen Wi-Fi y puedo trabajar con laptop?",
+    a: "Sí, hay Wi-Fi para clientes y conexiones eléctricas junto a las mesas. Trabajar o estudiar es bienvenido, aunque el espacio no está planteado como coworking.",
+  },
+  {
+    q: "¿Cuentan con estacionamiento?",
+    a: "No tenemos estacionamiento propio. El de la zona de García de León puede ser limitado, tenlo en cuenta al planear tu visita.",
+  },
+  {
+    q: "¿Aceptan reservaciones?",
+    a: "Solo para eventos especiales. El espacio es pequeño (cuatro mesas y barra con cinco bancos), así que el consumo habitual es por disponibilidad de lugares.",
+  },
+  {
+    q: "¿Qué formas de pago aceptan?",
+    a: "Efectivo, transferencia y tarjeta.",
+  },
+  {
+    q: "¿Tienen servicio para llevar?",
+    a: "Sí, con envases y desechables reciclables.",
+  },
+];
 
 export default function UbicacionPage() {
   const { contact, address } = siteConfig;
@@ -110,6 +138,9 @@ export default function UbicacionPage() {
             </ul>
           </section>
         </div>
+
+        <Faq items={faqs} />
+        <JsonLd data={faqJsonLd(faqs)} />
       </Container>
     </>
   );
