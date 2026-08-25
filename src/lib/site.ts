@@ -47,6 +47,12 @@ export const siteConfig = {
     country: "MX",
   },
 
+  // Coordenadas del pin de Google Maps (para el geo del schema local).
+  geo: {
+    latitude: 19.6891623,
+    longitude: -101.1648761,
+  },
+
   // Horarios en formato 24h. `null` = pendiente de confirmar (TODO_CLIENT).
   // El sábado bloquea el schema de horario definitivo hasta confirmarse.
   hours: {

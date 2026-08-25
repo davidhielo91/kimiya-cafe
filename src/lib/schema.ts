@@ -49,6 +49,11 @@ export function localBusinessJsonLd() {
       postalCode: a.postalCode,
       addressCountry: a.country,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
     areaServed: "Morelia, Michoacán",
     servesCuisine: "Café de especialidad",
     foundingDate: String(siteConfig.foundingYear),
