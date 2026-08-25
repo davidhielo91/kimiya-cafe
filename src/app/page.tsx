@@ -72,7 +72,7 @@ export default function HomePage() {
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
               href="/ubicacion"
-              className="group inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-medium text-white transition-transform hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
             >
               Cómo llegar
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -105,7 +105,7 @@ export default function HomePage() {
               ["Experimentar", "Un Brew Bar donde cada método cambia la taza."],
             ].map(([title, body], i) => (
               <li key={title} className="pt-6">
-                <span className="eyebrow text-brand">
+                <span className="eyebrow text-brand-ink">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h2 className="font-editorial mt-2 text-2xl">{title}</h2>
@@ -181,7 +181,7 @@ export default function HomePage() {
             <span key={m.id}>
               {m.name}
               {i < methods.length - 1 && (
-                <span className="mx-2 text-brand" aria-hidden>
+                <span className="mx-2 text-brand-ink" aria-hidden>
                   ·
                 </span>
               )}
@@ -193,7 +193,7 @@ export default function HomePage() {
       {/* ── Café en grano ────────────────────────────────────── */}
       <section className="border-t border-black/10 bg-muted/5">
         <Container className="py-20 md:py-28">
-          <p className="eyebrow text-brand">Para llevar · selección rotativa</p>
+          <p className="eyebrow text-brand-ink">Para llevar · selección rotativa</p>
           <h2 className="font-editorial mt-4 max-w-2xl text-[clamp(2rem,5vw,3.25rem)] leading-tight">
             Café en grano de especialidad
           </h2>
@@ -214,7 +214,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 border-t border-black/10 pt-6">
-            <p className="eyebrow text-foreground/40">
+            <p className="eyebrow text-foreground/60">
               Tostadores con los que trabajamos
             </p>
             <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-editorial text-lg text-foreground/80">
@@ -226,7 +226,7 @@ export default function HomePage() {
 
           <Link
             href="/cafe-en-grano"
-            className="mt-10 inline-block text-sm font-medium text-brand underline-offset-8 hover:underline"
+            className="mt-10 inline-block text-sm font-medium text-brand-ink underline-offset-8 hover:underline"
           >
             Explorar café en grano →
           </Link>
@@ -245,7 +245,7 @@ export default function HomePage() {
             <article key={w.id} className="pt-6 md:pr-8">
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="font-editorial text-2xl">{w.name}</h3>
-                <span className="shrink-0 text-sm text-brand">
+                <span className="shrink-0 text-sm text-brand-ink">
                   {formatPrice(w.pricePerPerson)}
                 </span>
               </div>
@@ -293,7 +293,7 @@ export default function HomePage() {
       <section className="border-t border-black/10">
         <Container className="grid gap-10 py-20 md:grid-cols-2 md:py-28">
           <div>
-            <p className="eyebrow text-brand">Visítanos</p>
+            <p className="eyebrow text-brand-ink">Visítanos</p>
             <h2 className="font-editorial mt-4 text-[clamp(2rem,5vw,3rem)] leading-tight">
               {siteConfig.address.neighborhood}, Morelia
             </h2>
@@ -302,7 +302,7 @@ export default function HomePage() {
             </address>
             <Link
               href="/ubicacion"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-medium text-white transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
             >
               Cómo llegar <span aria-hidden>→</span>
             </Link>
@@ -345,14 +345,14 @@ function Editorial({
   return (
     <section className="border-t border-black/10">
       <Container className="py-20 md:py-28">
-        <p className="eyebrow text-brand">{eyebrow}</p>
+        <p className="eyebrow text-brand-ink">{eyebrow}</p>
         <h2 className="font-editorial mt-4 max-w-2xl text-[clamp(2rem,5vw,3.25rem)] leading-tight">
           {title}
         </h2>
         <div className="mt-10">{children}</div>
         <Link
           href={href}
-          className="mt-10 inline-block text-sm font-medium text-brand underline-offset-8 hover:underline"
+          className="mt-10 inline-block text-sm font-medium text-brand-ink underline-offset-8 hover:underline"
         >
           {cta} →
         </Link>
@@ -364,7 +364,7 @@ function Editorial({
 function Fact({ term, value }: { term: string; value: string }) {
   return (
     <div>
-      <dt className="eyebrow text-foreground/40">{term}</dt>
+      <dt className="eyebrow text-foreground/60">{term}</dt>
       <dd className="font-editorial mt-1 text-2xl">{value}</dd>
     </div>
   );

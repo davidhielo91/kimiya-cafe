@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { siteConfig } from "@/lib/site";
 import { navItems } from "@/lib/nav";
-import { formatAddress, weekHours } from "@/lib/format";
+import { weekHours } from "@/lib/format";
 
 // Pie de página con NAP consistente y estructurado (SEO.md §13). Cada dato va
 // bajo su etiqueta. No renderiza datos internos ni marcadores TODO_CLIENT
@@ -11,7 +12,6 @@ import { formatAddress, weekHours } from "@/lib/format";
 
 export function SiteFooter() {
   const { contact, address, social } = siteConfig;
-  const mapsQuery = encodeURIComponent(formatAddress());
   const hours = weekHours().filter((row) => row.range !== null);
 
   return (
@@ -19,8 +19,14 @@ export function SiteFooter() {
       <Container className="grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
         {/* Marca */}
         <div className="lg:pr-6">
-          <p className="font-editorial text-2xl">{siteConfig.name}</p>
-          <p className="mt-3 max-w-xs font-serif text-sm leading-relaxed text-white/60">
+          <Image
+            src="/images/logo.png"
+            alt={siteConfig.name}
+            width={160}
+            height={160}
+            className="h-28 w-28 object-contain mix-blend-screen"
+          />
+          <p className="mt-4 max-w-xs font-serif text-sm leading-relaxed text-white/60">
             {siteConfig.brandPhrase}
           </p>
         </div>
@@ -54,7 +60,7 @@ export function SiteFooter() {
                 {address.city}, {address.state}
               </address>
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery}`}
+                href={social.googleBusiness}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-1.5 inline-block text-brand hover:underline"

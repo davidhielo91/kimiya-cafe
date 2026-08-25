@@ -21,6 +21,10 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand: var(--color-orange);
+  /* Naranja más profundo para TEXTO pequeño sobre fondo claro (WCAG AA).
+     El #FC4C02 se reserva para fondos, íconos, texto grande y secciones
+     oscuras, donde sí cumple contraste. */
+  --color-brand-ink: #c23d00;
   --color-ink: var(--color-black);
   --color-muted: var(--color-gray);
 

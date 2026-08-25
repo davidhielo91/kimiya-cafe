@@ -19,7 +19,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-foreground/80 transition-colors hover:text-brand"
+                  className="text-foreground/80 transition-colors hover:text-brand-ink"
                 >
                   {item.label}
                 </Link>
@@ -68,7 +68,7 @@ export function SiteHeader() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block rounded px-3 py-2 text-sm text-foreground/90 hover:bg-black/5 hover:text-brand"
+                    className="block rounded px-3 py-2 text-sm text-foreground/90 hover:bg-black/5 hover:text-brand-ink"
                   >
                     {item.label}
                   </Link>

@@ -74,13 +74,13 @@ export default function MenuPage() {
                           >
                             {item.name}
                             {item.featured && (
-                              <span className="ml-2 align-middle text-xs text-brand">
+                              <span className="ml-2 align-middle text-xs text-brand-ink">
                                 ● insignia
                               </span>
                             )}
                           </p>
                           {item.description && (
-                            <p className="mt-1 max-w-md text-sm text-foreground/50">
+                            <p className="mt-1 max-w-md text-sm text-foreground/70">
                               {item.description}
                             </p>
                           )}

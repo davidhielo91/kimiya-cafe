@@ -32,7 +32,6 @@ const attributes: string[] = [
 
 export default function UbicacionPage() {
   const { contact, address } = siteConfig;
-  const mapsQuery = encodeURIComponent(formatAddress());
 
   return (
     <>
@@ -47,16 +46,16 @@ export default function UbicacionPage() {
       <Container className="py-16 md:py-24">
         <div className="flex flex-wrap gap-4">
           <a
-            href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery}`}
+            href={siteConfig.social.googleBusiness}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-medium text-white transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
           >
             Cómo llegar <span aria-hidden>→</span>
           </a>
           <a
             href={`tel:+52${contact.phone}`}
-            className="inline-flex items-center rounded-full border border-black/20 px-7 py-3 text-sm font-medium hover:border-brand hover:text-brand"
+            className="inline-flex items-center rounded-full border border-black/20 px-7 py-3 text-sm font-medium hover:border-brand hover:text-brand-ink"
           >
             Llamar {contact.phone}
           </a>
@@ -64,7 +63,7 @@ export default function UbicacionPage() {
 
         <div className="mt-16 grid gap-12 md:grid-cols-2">
           <section>
-            <p className="eyebrow text-brand">Horarios</p>
+            <p className="eyebrow text-brand-ink">Horarios</p>
             <dl className="mt-4 border-t border-black/10">
               {weekHours()
                 .filter((row) => row.range !== null)
@@ -78,20 +77,20 @@ export default function UbicacionPage() {
                   </div>
                 ))}
             </dl>
-            <p className="mt-4 text-sm text-foreground/50">
+            <p className="mt-4 text-sm text-foreground/70">
               {address.neighborhood}, {address.city}, {address.state}.
             </p>
           </section>
 
           <section>
-            <p className="eyebrow text-brand">Antes de visitarnos</p>
+            <p className="eyebrow text-brand-ink">Antes de visitarnos</p>
             <ul className="mt-4 border-t border-black/10">
               {attributes.map((attr) => (
                 <li
                   key={attr}
                   className="flex items-center gap-3 border-b border-black/10 py-3 text-foreground/80"
                 >
-                  <span aria-hidden className="text-brand">
+                  <span aria-hidden className="text-brand-ink">
                     ◦
                   </span>
                   {attr}

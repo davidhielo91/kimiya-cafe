@@ -42,7 +42,7 @@ export default function NosotrosPage() {
           </div>
 
           <aside>
-            <p className="eyebrow text-brand">Lo que nos mueve</p>
+            <p className="eyebrow text-brand-ink">Lo que nos mueve</p>
             <ul className="mt-4 border-t border-black/10">
               {values.map(([title, body]) => (
                 <li key={title} className="border-b border-black/10 py-4">

@@ -51,7 +51,7 @@ export default function CafeEnGranoPage() {
         )}
 
         <section className="mt-16">
-          <p className="eyebrow text-brand">En barra esta temporada</p>
+          <p className="eyebrow text-brand-ink">En barra esta temporada</p>
           <h2 className="font-editorial mt-3 text-2xl md:text-3xl">
             Cafés disponibles
           </h2>
@@ -78,7 +78,7 @@ export default function CafeEnGranoPage() {
 
         <section className="mt-16 grid gap-10 border-t border-black/10 pt-12 md:grid-cols-2">
           <div>
-            <p className="eyebrow text-foreground/40">Tostadores</p>
+            <p className="eyebrow text-foreground/60">Tostadores</p>
             <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-editorial text-lg text-foreground/80">
               {roasters.map((r) => (
                 <li key={r}>{r}</li>
@@ -86,12 +86,12 @@ export default function CafeEnGranoPage() {
             </ul>
           </div>
           <div>
-            <p className="eyebrow text-foreground/40">Productores</p>
+            <p className="eyebrow text-foreground/60">Productores</p>
             <ul className="mt-4 space-y-2 text-sm text-foreground/70">
               {producers.map((p) => (
                 <li key={p.name} className="flex justify-between gap-4">
                   <span>{p.name}</span>
-                  <span className="shrink-0 text-foreground/40">
+                  <span className="shrink-0 text-foreground/60">
                     {p.origin}
                   </span>
                 </li>
@@ -107,7 +107,7 @@ export default function CafeEnGranoPage() {
 function Fact({ term, value }: { term: string; value: string }) {
   return (
     <div>
-      <dt className="eyebrow text-foreground/40">{term}</dt>
+      <dt className="eyebrow text-foreground/60">{term}</dt>
       <dd className="font-editorial mt-2 text-3xl">{value}</dd>
     </div>
   );

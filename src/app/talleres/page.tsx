@@ -38,7 +38,7 @@ export default function TalleresPage() {
               className="grid gap-6 border-t border-black/10 py-10 md:grid-cols-[1fr_1.6fr] md:gap-12"
             >
               <div>
-                <span className="eyebrow text-brand">
+                <span className="eyebrow text-brand-ink">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h2 className="font-editorial mt-3 text-3xl md:text-4xl">
@@ -46,7 +46,7 @@ export default function TalleresPage() {
                 </h2>
                 <p className="mt-4 text-2xl text-brand">
                   {formatPrice(w.pricePerPerson)}
-                  <span className="ml-1 text-sm text-foreground/50">
+                  <span className="ml-1 text-sm text-foreground/70">
                     / persona
                   </span>
                 </p>
@@ -58,11 +58,11 @@ export default function TalleresPage() {
 
                 <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-black/10 pt-6 text-sm">
                   <div>
-                    <dt className="eyebrow text-foreground/40">Para quién</dt>
+                    <dt className="eyebrow text-foreground/60">Para quién</dt>
                     <dd className="mt-2 text-foreground/70">{w.audience}</dd>
                   </div>
                   <div>
-                    <dt className="eyebrow text-foreground/40">Condiciones</dt>
+                    <dt className="eyebrow text-foreground/60">Condiciones</dt>
                     <dd className="mt-2 text-foreground/70">
                       Reservación anticipada · mínimo {w.minParticipants}{" "}
                       participantes
