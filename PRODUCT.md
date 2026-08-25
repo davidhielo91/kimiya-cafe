@@ -151,7 +151,7 @@ Presentando identificación oficial que compruebe la fecha, el cliente puede rec
 
 - Dirección: Blvd. García de León 1201-A, Chapultepec Oriente, CP 58260, Morelia, Michoacán.
 - Teléfono: 4436971306.
-- Correo oficial: kimiya231088@gmail.com.
+- Correo público: contacto@kimiyacafe.com.mx (buzón por configurar antes de producción; buzón real actual: kimiya231088@gmail.com).
 - WhatsApp: no aplica actualmente.
 - Lunes a viernes: 08:00–20:00.
 - Domingo: 08:00–17:00.

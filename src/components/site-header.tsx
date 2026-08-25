@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { navItems } from "@/lib/nav";
@@ -9,8 +10,19 @@ export function SiteHeader() {
   return (
     <header className="border-b border-black/10">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
-          {siteConfig.name}
+        <Link
+          href="/"
+          aria-label={siteConfig.name}
+          className="inline-flex items-center"
+        >
+          <Image
+            src="/images/logo-kimiya-cafe-oscuro.png"
+            alt={siteConfig.name}
+            width={185}
+            height={140}
+            priority
+            className="h-12 w-auto md:h-14"
+          />
         </Link>
 
         <nav aria-label="Navegación principal" className="hidden md:block">

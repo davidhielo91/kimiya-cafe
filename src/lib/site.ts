@@ -19,7 +19,10 @@ export const siteConfig = {
 
   contact: {
     phone: "4436971306",
-    email: "kimiya231088@gmail.com",
+    // Correo profesional público. El buzón del dominio debe configurarse (o
+    // redirigirse) antes de producción para no perder mensajes; el gmail del
+    // negocio (kimiya231088@gmail.com) sigue siendo el buzón real por ahora.
+    email: "contacto@kimiyacafe.com.mx",
     whatsapp: null as string | null,
   },
 

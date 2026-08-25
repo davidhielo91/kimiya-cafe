@@ -20,11 +20,11 @@ export function SiteFooter() {
         {/* Marca */}
         <div className="lg:pr-6">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-kimiya-cafe-original.png"
             alt={siteConfig.name}
-            width={160}
-            height={160}
-            className="h-28 w-28 object-contain mix-blend-screen"
+            width={185}
+            height={140}
+            className="h-24 w-auto"
           />
           <p className="mt-4 max-w-xs font-serif text-sm leading-relaxed text-white/60">
             {siteConfig.brandPhrase}
