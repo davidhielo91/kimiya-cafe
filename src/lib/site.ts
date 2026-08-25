@@ -7,10 +7,19 @@
 //
 // Datos no confirmados => `null` (TODO_CLIENT). Nunca inventar.
 
+// URL base del sitio. Se toma de SITE_URL para que canonical/OG/schema apunten
+// al dominio donde realmente está servido (preview de Coolify, staging o prod).
+// Fallback al dominio de producción. Configurar SITE_URL en el entorno del
+// despliegue (sin barra final).
+const SITE_URL = (process.env.SITE_URL ?? "https://kimiyacafe.com.mx").replace(
+  /\/+$/,
+  "",
+);
+
 export const siteConfig = {
   name: "Kimiya Café",
   legalDomain: "kimiyacafe.com.mx",
-  url: "https://kimiyacafe.com.mx",
+  url: SITE_URL,
   positioning:
     "Café de especialidad en Morelia para descubrir, aprender y experimentar.",
   brandPhrase:
