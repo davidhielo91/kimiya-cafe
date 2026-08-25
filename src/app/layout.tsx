@@ -6,8 +6,17 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
+// Solo el dominio de producción se indexa. Cualquier otro (preview de Coolify,
+// dominio temporal) se marca noindex para no competir con el sitio real ni
+// generar contenido duplicado. El OG/preview sigue funcionando (noindex no
+// bloquea a los crawlers sociales).
+const host = new URL(siteConfig.url).hostname;
+const isProduction =
+  host === siteConfig.legalDomain || host.endsWith("." + siteConfig.legalDomain);
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  robots: isProduction ? undefined : { index: false, follow: false },
   title: {
     default: `${siteConfig.name} — Café de especialidad en Morelia`,
     template: `%s | ${siteConfig.name}`,
