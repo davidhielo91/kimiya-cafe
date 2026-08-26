@@ -1,10 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Imagen de producción mínima para Docker (DEPLOYMENT.md §6).
-  output: "standalone",
-  // Las imágenes viven como archivos locales en /public/images/. Sin orígenes
-  // remotos por ahora (DESIGN.md §10.1).
+  // Export estático: el sitio es 100% prerenderizado, así que generamos HTML/CSS/JS
+  // puro en /out y lo servimos como assets estáticos en Cloudflare Workers.
+  output: "export",
+  images: {
+    // La optimización on-the-fly de next/image no existe en export estático.
+    // Las imágenes de /public/images ya están optimizadas (WebP/JPG).
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
