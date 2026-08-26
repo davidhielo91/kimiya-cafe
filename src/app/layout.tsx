@@ -32,12 +32,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_MX",
     siteName: siteConfig.name,
-    url: siteConfig.url,
-    // Imagen para compartir en redes (/public/images/og.*), con dimensiones
-    // reales del archivo.
+    // og:url se OMITE a propósito: este openGraph es compartido por todas las
+    // páginas y Next no hace deep-merge, así que hardcodear una URL apuntaría
+    // todas las interiores al home. El canonical per-página (alternates.canonical)
+    // ya comunica la URL correcta.
+    // Imagen para compartir en redes (/public/images/og.*), con dimensiones reales.
     images: (() => {
       const og = getOgImage();
-      return og ? [{ url: og.url, width: og.width, height: og.height }] : undefined;
+      return og
+        ? [
+            {
+              url: og.url,
+              width: og.width,
+              height: og.height,
+              alt: `${siteConfig.name} — café de especialidad en Morelia`,
+            },
+          ]
+        : undefined;
     })(),
   },
   twitter: {
