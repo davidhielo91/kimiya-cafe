@@ -8,9 +8,9 @@ import { siteConfig } from "@/lib/site";
 import { formatAddress, weekHours } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Cafetería en Chapultepec, Morelia",
+  title: "Cafetería en El Bulevar García de León, Morelia",
   description:
-    "Visítanos en Blvd. García de León 1201-A, Chapultepec, Morelia. Wi-Fi, pet friendly y para llevar. Consulta horarios y cómo llegar a Kimiya Café.",
+    "Visítanos en el Bulevar García de León (Blvd. García de León 1201-A), Morelia. Wi-Fi, pet friendly y para llevar. Consulta horarios y cómo llegar a Kimiya Café.",
   alternates: { canonical: "/ubicacion" },
 };
 
@@ -42,7 +42,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "¿Cuentan con estacionamiento?",
-    a: "No tenemos estacionamiento propio. El de la zona de García de León puede ser limitado, tenlo en cuenta al planear tu visita.",
+    a: "No tenemos estacionamiento propio. El de la zona del Bulevar García de León puede ser limitado, tenlo en cuenta al planear tu visita.",
   },
   {
     q: "¿Aceptan reservaciones?",
@@ -59,15 +59,15 @@ const faqs: FaqItem[] = [
 ];
 
 export default function UbicacionPage() {
-  const { contact, address } = siteConfig;
+  const { address } = siteConfig;
 
   return (
     <>
       <JsonLd data={localBusinessJsonLd()} />
 
       <PageHeader
-        eyebrow="Visítanos · García de León"
-        title="Cafetería en Chapultepec, Morelia"
+        eyebrow="Visítanos · El Bulevar García de León"
+        title="Cafetería en El Bulevar García de León, Morelia"
         lede={formatAddress()}
       />
 
@@ -80,12 +80,6 @@ export default function UbicacionPage() {
             className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
           >
             Cómo llegar <span aria-hidden>→</span>
-          </a>
-          <a
-            href={`tel:+52${contact.phone}`}
-            className="inline-flex items-center rounded-full border border-black/20 px-7 py-3 text-sm font-medium hover:border-brand hover:text-brand-ink"
-          >
-            Llamar {contact.phone}
           </a>
         </div>
 

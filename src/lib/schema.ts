@@ -37,8 +37,6 @@ export function localBusinessJsonLd() {
     name: siteConfig.name,
     url: siteConfig.url,
     ...(ogImage ? { image: `${siteConfig.url}${ogImage.url}` } : {}),
-    telephone: `+52${siteConfig.contact.phone}`,
-    email: siteConfig.contact.email,
     hasMenu: `${siteConfig.url}/menu`,
     priceRange: "$$",
     address: {

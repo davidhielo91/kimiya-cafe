@@ -22,7 +22,7 @@ import { formatPrice } from "@/lib/format";
 export const metadata: Metadata = {
   title: { absolute: "Café de especialidad en Morelia | Kimiya Café" },
   description:
-    "Cafetería de especialidad en Morelia, en Chapultepec sobre García de León. Descubre cold brew, café en grano, métodos de extracción y talleres de café.",
+    "Cafetería de especialidad en Morelia, en el Bulevar García de León. Descubre cold brew, café en grano, métodos de extracción y talleres de café.",
   alternates: { canonical: "/" },
 };
 
@@ -65,7 +65,7 @@ export default function HomePage() {
         )}
         <Container className="relative z-10 animate-rise py-24 md:py-36">
           <p className="eyebrow text-brand">
-            Morelia · Chapultepec · García de León
+            Morelia · El Bulevar García de León
           </p>
           <h1 className="font-editorial mt-6 max-w-4xl text-[clamp(2.75rem,8vw,6rem)] leading-[0.98]">
             Café de <em className="text-brand not-italic">especialidad</em>
@@ -100,8 +100,7 @@ export default function HomePage() {
             {siteConfig.brandPhrase}
           </p>
           <p className="mt-6 max-w-xl text-foreground/60">
-            No necesitas ser experto para disfrutar un buen café. Aquí se
-            descubre sin pretensión y se aprende experimentando.
+            No necesitas ser experto para disfrutar un buen café.
           </p>
 
           <ul className="mt-14 grid gap-px border-t border-black/10 sm:grid-cols-3">
@@ -128,7 +127,7 @@ export default function HomePage() {
       <section className="bg-ink text-white">
         <Container className="grid items-center gap-12 py-20 md:grid-cols-2 md:py-28">
           <div>
-            <p className="eyebrow text-brand">En frío · nuestro insignia</p>
+            <p className="eyebrow text-brand">En frío · nuestra insignia</p>
             <h2 className="font-editorial mt-4 text-[clamp(2rem,5vw,3.5rem)] leading-none">
               Cold Brew
             </h2>
@@ -211,7 +210,7 @@ export default function HomePage() {
           <div className="mt-10 grid gap-10 md:grid-cols-[1.3fr_1fr]">
             <p className="max-w-xl text-foreground/70">
               Distintos orígenes, variedades y procesos —lavado, honey, natural y
-              experimentales— según disponibilidad. Molienda a tu método.
+              experimentales— según disponibilidad.
             </p>
             <dl className="grid grid-cols-2 gap-6 text-sm">
               <Fact term="Presentación" value={grainInfo.usualPresentation} />
@@ -301,7 +300,7 @@ export default function HomePage() {
           <div>
             <p className="eyebrow text-brand-ink">Visítanos</p>
             <h2 className="font-editorial mt-4 text-[clamp(2rem,5vw,3rem)] leading-tight">
-              {siteConfig.address.neighborhood}, Morelia
+              El Bulevar García de León, Morelia
             </h2>
             <address className="mt-4 not-italic text-foreground/70">
               {siteConfig.address.street}

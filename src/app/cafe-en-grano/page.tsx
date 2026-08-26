@@ -54,7 +54,7 @@ export default function CafeEnGranoPage() {
       <PageHeader
         eyebrow="Para llevar · selección rotativa"
         title="Café en grano de especialidad en Morelia"
-        lede="Distintos orígenes, variedades y procesos —lavado, honey, natural y experimentales— según disponibilidad. Molienda a tu método."
+        lede="Distintos orígenes, variedades y procesos —lavado, honey, natural y experimentales— según disponibilidad."
       />
 
       <Container className="py-16 md:py-24">
@@ -85,8 +85,8 @@ export default function CafeEnGranoPage() {
           </h2>
           {coffees.length === 0 ? (
             <p className="mt-6 max-w-xl text-foreground/60">
-              La selección cambia con frecuencia. Escríbenos o visítanos para
-              conocer los cafés en barra esta temporada.
+              La selección cambia con frecuencia. Visítanos para conocer los
+              cafés en barra esta temporada.
             </p>
           ) : (
             <ul className="mt-8 grid gap-px border-t border-black/10 sm:grid-cols-2 lg:grid-cols-3">

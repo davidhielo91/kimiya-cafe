@@ -11,7 +11,7 @@ import { weekHours } from "@/lib/format";
 // (DEPLOYMENT.md §12): los días sin confirmar (sábado) se omiten.
 
 export function SiteFooter() {
-  const { contact, address, social } = siteConfig;
+  const { address, social } = siteConfig;
   const hours = weekHours().filter((row) => row.range !== null);
 
   return (
@@ -68,26 +68,6 @@ export function SiteFooter() {
                 Cómo llegar →
               </a>
             </div>
-
-            <div>
-              <p className="eyebrow text-white/40">Teléfono</p>
-              <a
-                href={`tel:+52${contact.phone}`}
-                className="mt-1.5 inline-block text-white/80 hover:text-brand"
-              >
-                {contact.phone}
-              </a>
-            </div>
-
-            <div>
-              <p className="eyebrow text-white/40">Correo</p>
-              <a
-                href={`mailto:${contact.email}`}
-                className="mt-1.5 inline-block break-all text-white/80 hover:text-brand"
-              >
-                {contact.email}
-              </a>
-            </div>
           </div>
         </FooterCol>
 
@@ -136,7 +116,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos
             reservados.
           </p>
-          <p>Café de especialidad en Morelia · Chapultepec</p>
+          <p>Café de especialidad en Morelia · El Bulevar</p>
         </Container>
       </div>
     </footer>

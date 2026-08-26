@@ -9,7 +9,7 @@ import { navItems } from "@/lib/nav";
 export const dynamic = "force-static";
 
 export function GET() {
-  const { name, url, positioning, contact, social } = siteConfig;
+  const { name, url, positioning, social } = siteConfig;
   const hours = weekHours()
     .filter((r) => r.range !== null)
     .map((r) => `${r.day}: ${r.range}`)
@@ -21,13 +21,11 @@ export function GET() {
 
   const body = `# ${name}
 
-> ${positioning} Cafetería en Chapultepec (Morelia) con cold brew, café en grano, métodos de extracción y talleres.
+> ${positioning} Cafetería en El Bulevar García de León (Morelia) con cold brew, café en grano, métodos de extracción y talleres.
 
 ## Negocio
 - Nombre: ${name}
 - Dirección: ${formatAddress()}
-- Teléfono: ${contact.phone}
-- Correo: ${contact.email}
 - Horario: ${hours}
 - Instagram: ${social.instagram}
 - Google Maps: ${social.googleBusiness}
