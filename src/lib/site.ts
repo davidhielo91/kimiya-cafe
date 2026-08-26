@@ -41,6 +41,12 @@ export const siteConfig = {
     googleBusiness: "https://www.google.com/maps?cid=247101415948109667",
   },
 
+  // Analítica. El Measurement ID de GA4 es público (va en el HTML del cliente).
+  // Solo se carga en el dominio de producción (ver layout).
+  analytics: {
+    ga4Id: "G-STST166XH4",
+  },
+
   // Fechas relevantes del negocio (confirmadas en el cuestionario).
   keyDates: [
     { date: "05-20", name: "Aniversario de Kimiya Café" },

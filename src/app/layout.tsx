@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { beVietnam } from "@/lib/fonts";
 import { siteConfig, isProductionHost } from "@/lib/site";
 import { getOgImage } from "@/content/images";
@@ -53,6 +54,25 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+
+        {/* Google Analytics (GA4). Solo en producción para no contar tráfico de
+            previews/staging. Se carga tras la hidratación (afterInteractive). */}
+        {isProduction && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.ga4Id}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${siteConfig.analytics.ga4Id}');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
