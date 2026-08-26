@@ -19,11 +19,13 @@ const DAY_LABELS: Record<string, string> = {
 
 export type HoursRow = {
   day: string;
-  /** `null` = horario aún no confirmado (no publicar como texto crudo). */
+  /** Rango horario, `"Cerrado"` si cierra ese día, o `null` si no está
+   *  confirmado (no publicar como texto crudo). */
   range: string | null;
 };
 
-/** Horarios en orden de semana, con `null` para días sin confirmar. */
+/** Horarios en orden de semana. `"Cerrado"` para días cerrados, `null` para
+ *  días sin confirmar. */
 export function weekHours(): HoursRow[] {
   const order = [
     "monday",
@@ -37,10 +39,11 @@ export function weekHours(): HoursRow[] {
 
   return order.map((day) => {
     const h = siteConfig.hours[day];
-    return {
-      day: DAY_LABELS[day],
-      range: h ? `${h.open} – ${h.close}` : null,
-    };
+    let range: string | null;
+    if (h === "closed") range = "Cerrado";
+    else if (h) range = `${h.open} – ${h.close}`;
+    else range = null;
+    return { day: DAY_LABELS[day], range };
   });
 }
 

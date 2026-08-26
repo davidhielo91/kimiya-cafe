@@ -12,9 +12,9 @@ describe("formatPrice", () => {
 });
 
 describe("weekHours", () => {
-  it("marca el sábado como null (TODO_CLIENT, sin confirmar)", () => {
+  it("marca el sábado como cerrado", () => {
     const saturday = weekHours().find((r) => r.day === "Sábado");
-    expect(saturday?.range).toBeNull();
+    expect(saturday?.range).toBe("Cerrado");
   });
 
   it("expone los días confirmados con rango", () => {

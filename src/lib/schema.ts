@@ -4,8 +4,9 @@ import { getOgImage } from "@/content/images";
 // Schema JSON-LD para SEO local (SEO.md §12–13).
 //
 // Tipo CafeOrCoffeeShop. Los `openingHoursSpecification` OMITEN los días sin
-// confirmar (sábado = null / TODO_CLIENT): no publicar horario definitivo
-// incompleto (SEO.md §13). Se completará al confirmarse el dato.
+// confirmar (`null` / TODO_CLIENT). Los días cerrados (`"closed"`, p. ej. el
+// sábado) se declaran con opens = closes = "00:00", que es como Google marca
+// "cerrado" (SEO.md §13).
 
 const DAY_SCHEMA: Record<string, string> = {
   monday: "Monday",
@@ -22,12 +23,23 @@ export function localBusinessJsonLd() {
 
   const openingHoursSpecification = Object.entries(siteConfig.hours)
     .filter(([, h]) => h !== null)
-    .map(([day, h]) => ({
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: DAY_SCHEMA[day],
-      opens: h!.open,
-      closes: h!.close,
-    }));
+    .map(([day, h]) => {
+      // Día cerrado: Google lo interpreta con opens = closes = "00:00".
+      if (h === "closed") {
+        return {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: DAY_SCHEMA[day],
+          opens: "00:00",
+          closes: "00:00",
+        };
+      }
+      return {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: DAY_SCHEMA[day],
+        opens: h!.open,
+        closes: h!.close,
+      };
+    });
 
   const ogImage = getOgImage();
 

@@ -315,6 +315,7 @@ export default function HomePage() {
           <ul className="self-center text-sm">
             {[
               ["Lun – Vie", "08:00 – 20:00"],
+              ["Sábado", "Cerrado"],
               ["Domingo", "08:00 – 17:00"],
             ].map(([days, hours]) => (
               <li

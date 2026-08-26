@@ -69,17 +69,17 @@ export const siteConfig = {
     longitude: -101.1648761,
   },
 
-  // Horarios en formato 24h. `null` = pendiente de confirmar (TODO_CLIENT).
-  // El sábado bloquea el schema de horario definitivo hasta confirmarse.
+  // Horarios en formato 24h. `"closed"` = el negocio cierra ese día; `null` =
+  // pendiente de confirmar (TODO_CLIENT). El sábado cierran.
   hours: {
     monday: { open: "08:00", close: "20:00" },
     tuesday: { open: "08:00", close: "20:00" },
     wednesday: { open: "08:00", close: "20:00" },
     thursday: { open: "08:00", close: "20:00" },
     friday: { open: "08:00", close: "20:00" },
-    saturday: null,
+    saturday: "closed",
     sunday: { open: "08:00", close: "17:00" },
-  } as Record<string, { open: string; close: string } | null>,
+  } as Record<string, { open: string; close: string } | "closed" | null>,
 
   // Atributos locales para /ubicacion, FAQ y Google Business Profile.
   attributes: {

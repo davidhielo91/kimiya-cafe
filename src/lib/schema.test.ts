@@ -4,19 +4,27 @@ import { localBusinessJsonLd } from "@/lib/schema";
 describe("localBusinessJsonLd", () => {
   const data = localBusinessJsonLd() as {
     "@type": string;
-    openingHoursSpecification: { dayOfWeek: string }[];
+    openingHoursSpecification: {
+      dayOfWeek: string;
+      opens: string;
+      closes: string;
+    }[];
   };
 
   it("declara el tipo CafeOrCoffeeShop", () => {
     expect(data["@type"]).toBe("CafeOrCoffeeShop");
   });
 
-  it("omite el sábado del horario hasta confirmarse (SEO.md §13)", () => {
-    const days = data.openingHoursSpecification.map((s) => s.dayOfWeek);
-    expect(days).not.toContain("Saturday");
+  it("declara el sábado como cerrado (opens = closes = 00:00)", () => {
+    const saturday = data.openingHoursSpecification.find(
+      (s) => s.dayOfWeek === "Saturday",
+    );
+    expect(saturday).toBeDefined();
+    expect(saturday?.opens).toBe("00:00");
+    expect(saturday?.closes).toBe("00:00");
   });
 
-  it("publica solo los 6 días confirmados", () => {
-    expect(data.openingHoursSpecification).toHaveLength(6);
+  it("publica los 7 días de la semana", () => {
+    expect(data.openingHoursSpecification).toHaveLength(7);
   });
 });
