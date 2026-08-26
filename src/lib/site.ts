@@ -41,10 +41,12 @@ export const siteConfig = {
     googleBusiness: "https://www.google.com/maps?cid=247101415948109667",
   },
 
-  // Analítica vía Google Tag Manager. GA4 (G-STST166XH4) y las demás etiquetas
-  // se gestionan DENTRO del contenedor de GTM, no en código. Solo se carga en
-  // el dominio de producción (ver layout).
+  // Analítica. GA4 se carga DIRECTO (gtag.js) para medición inmediata. GTM
+  // queda instalado para futuras etiquetas — IMPORTANTE: NO crear una etiqueta
+  // GA4 dentro de GTM o se contaría doble. Ambos solo cargan en producción
+  // (ver layout). Los IDs son públicos (van en el HTML del cliente).
   analytics: {
+    ga4Id: "G-STST166XH4",
     gtmId: "GTM-KSWPXKBG",
   },
 

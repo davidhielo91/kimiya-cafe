@@ -89,6 +89,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${siteConfig.analytics.gtmId}');`}
           </Script>
         )}
+
+        {/* Google Analytics 4 (gtag.js) directo, para medición inmediata sin
+            depender de la configuración de GTM. NO añadir GA4 dentro de GTM o
+            se contaría doble. */}
+        {isProduction && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.ga4Id}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${siteConfig.analytics.ga4Id}');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
