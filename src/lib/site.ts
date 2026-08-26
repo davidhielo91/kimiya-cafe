@@ -41,10 +41,11 @@ export const siteConfig = {
     googleBusiness: "https://www.google.com/maps?cid=247101415948109667",
   },
 
-  // Analítica. El Measurement ID de GA4 es público (va en el HTML del cliente).
-  // Solo se carga en el dominio de producción (ver layout).
+  // Analítica vía Google Tag Manager. GA4 (G-STST166XH4) y las demás etiquetas
+  // se gestionan DENTRO del contenedor de GTM, no en código. Solo se carga en
+  // el dominio de producción (ver layout).
   analytics: {
-    ga4Id: "G-STST166XH4",
+    gtmId: "GTM-KSWPXKBG",
   },
 
   // Fechas relevantes del negocio (confirmadas en el cuestionario).
