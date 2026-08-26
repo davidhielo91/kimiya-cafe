@@ -27,10 +27,11 @@ export const siteConfig = {
   foundingYear: 2026,
 
   contact: {
-    // El negocio no ofrece atención telefónica ni por correo, así que no se
-    // publican teléfono ni email en el sitio, schema, footer ni llms.txt.
-    phone: null as string | null,
-    email: null as string | null,
+    phone: "4436971306",
+    // Correo profesional público. Configurar el buzón del dominio (o una
+    // redirección al correo real del negocio) antes de producción para no
+    // perder mensajes.
+    email: "contacto@kimiyacafe.com.mx",
     whatsapp: null as string | null,
   },
 

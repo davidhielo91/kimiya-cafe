@@ -59,7 +59,7 @@ const faqs: FaqItem[] = [
 ];
 
 export default function UbicacionPage() {
-  const { address } = siteConfig;
+  const { contact, address } = siteConfig;
 
   return (
     <>
@@ -80,6 +80,12 @@ export default function UbicacionPage() {
             className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
           >
             Cómo llegar <span aria-hidden>→</span>
+          </a>
+          <a
+            href={`tel:+52${contact.phone}`}
+            className="inline-flex items-center rounded-full border border-black/20 px-7 py-3 text-sm font-medium hover:border-brand hover:text-brand-ink"
+          >
+            Llamar {contact.phone}
           </a>
         </div>
 

@@ -9,7 +9,7 @@ import { navItems } from "@/lib/nav";
 export const dynamic = "force-static";
 
 export function GET() {
-  const { name, url, positioning, social } = siteConfig;
+  const { name, url, positioning, contact, social } = siteConfig;
   const hours = weekHours()
     .filter((r) => r.range !== null)
     .map((r) => `${r.day}: ${r.range}`)
@@ -26,6 +26,8 @@ export function GET() {
 ## Negocio
 - Nombre: ${name}
 - Dirección: ${formatAddress()}
+- Teléfono: ${contact.phone}
+- Correo: ${contact.email}
 - Horario: ${hours}
 - Instagram: ${social.instagram}
 - Google Maps: ${social.googleBusiness}
