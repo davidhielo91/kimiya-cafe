@@ -90,3 +90,14 @@ export const siteConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+
+// Verdadero solo cuando el sitio se sirve desde el dominio de producción
+// (kimiyacafe.com.mx o un subdominio suyo). Fuente única para decidir qué se
+// indexa: layout (robots meta) y robots.txt la comparten para no divergir.
+export function isProductionHost(): boolean {
+  const host = new URL(siteConfig.url).hostname;
+  return (
+    host === siteConfig.legalDomain ||
+    host.endsWith("." + siteConfig.legalDomain)
+  );
+}

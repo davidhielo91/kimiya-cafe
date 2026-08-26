@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { beVietnam } from "@/lib/fonts";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, isProductionHost } from "@/lib/site";
 import { getOgImage } from "@/content/images";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -10,13 +10,18 @@ import "./globals.css";
 // dominio temporal) se marca noindex para no competir con el sitio real ni
 // generar contenido duplicado. El OG/preview sigue funcionando (noindex no
 // bloquea a los crawlers sociales).
-const host = new URL(siteConfig.url).hostname;
-const isProduction =
-  host === siteConfig.legalDomain || host.endsWith("." + siteConfig.legalDomain);
+const isProduction = isProductionHost();
+
+// Token de verificación de Google Search Console. Se inyecta por env para no
+// versionarlo; si no está definido, no se emite la etiqueta.
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   robots: isProduction ? undefined : { index: false, follow: false },
+  ...(googleSiteVerification
+    ? { verification: { google: googleSiteVerification } }
+    : {}),
   title: {
     default: `${siteConfig.name} — Café de especialidad en Morelia`,
     template: `%s | ${siteConfig.name}`,
