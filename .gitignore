@@ -50,3 +50,6 @@ next-env.d.ts
 /SEO.md
 /DEPLOYMENT.md
 /IMAGE-PROMPTS.md
+
+# fuentes de diseño (mockups/PNG originales); se sirven ya optimizados en /public
+/.design-source/

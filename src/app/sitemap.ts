@@ -6,7 +6,13 @@ import { navItems } from "@/lib/nav";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const routes = ["/", ...navItems.map((i) => i.href)];
+  // Home + navegación aprobada + páginas de detalle no incluidas en el menú
+  // (p. ej. la experiencia inmersiva del taller, enlazada desde /talleres).
+  const routes = [
+    "/",
+    ...navItems.map((i) => i.href),
+    "/talleres/experiencia-sensorial",
+  ];
 
   return routes.map((path) => ({
     url: `${siteConfig.url}${path === "/" ? "" : path}`,

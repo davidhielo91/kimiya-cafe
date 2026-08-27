@@ -97,6 +97,15 @@ export default function TalleresPage() {
                     </dd>
                   </div>
                 </dl>
+
+                {w.slug === "experiencia-sensorial" && (
+                  <Link
+                    href="/talleres/experiencia-sensorial"
+                    className="mt-8 inline-flex items-center gap-1 font-medium text-brand-ink underline underline-offset-4"
+                  >
+                    Ver la experiencia completa →
+                  </Link>
+                )}
               </div>
             </article>
           ))}

@@ -1,5 +1,6 @@
 import { siteConfig } from "@/lib/site";
 import { getOgImage } from "@/content/images";
+import type { Workshop } from "@/lib/types";
 
 // Schema JSON-LD para SEO local (SEO.md §12–13).
 //
@@ -94,6 +95,56 @@ export function websiteJsonLd() {
     name: siteConfig.name,
     url: siteConfig.url,
     inLanguage: "es-MX",
+  };
+}
+
+/**
+ * Course para un taller/experiencia (SEO.md §12). Se declara el proveedor
+ * (Organization), la oferta con precio confirmado y una instancia presencial
+ * en el propio café. No se declara `startDate` porque la fecha se coordina de
+ * forma anticipada en el local (no hay calendario fijo publicado).
+ */
+export function courseJsonLd(workshop: Workshop, path: string) {
+  const a = siteConfig.address;
+  const url = `${siteConfig.url}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: workshop.name,
+    description: workshop.purpose,
+    url,
+    inLanguage: "es-MX",
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    offers: {
+      "@type": "Offer",
+      price: String(workshop.pricePerPerson),
+      priceCurrency: "MXN",
+      category: "Taller",
+      availability: "https://schema.org/InStock",
+      url,
+    },
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "onsite",
+      inLanguage: "es-MX",
+      location: {
+        "@type": "Place",
+        name: siteConfig.name,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: a.street,
+          addressLocality: a.city,
+          addressRegion: a.state,
+          postalCode: a.postalCode,
+          addressCountry: a.country,
+        },
+      },
+    },
   };
 }
 

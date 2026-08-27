@@ -10,7 +10,10 @@ import { Be_Vietnam_Pro } from "next/font/google";
 
 export const beVietnam = Be_Vietnam_Pro({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  // 300 (light) y 800 (extrabold) los usa la página inmersiva del taller
+  // "Experiencia Sensorial" para su contraste tipográfico (cuerpo ligero vs.
+  // display grueso). El resto del sitio usa 400–700.
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-be-vietnam",
   display: "swap",
 });
