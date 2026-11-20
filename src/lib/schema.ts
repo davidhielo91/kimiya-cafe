@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/site";
-import { getOgImage } from "@/content/images";
+import { getImages, getOgImage } from "@/content/images";
 import type { Workshop } from "@/lib/types";
 
 // Schema JSON-LD para SEO local (SEO.md §12–13).
@@ -42,14 +42,40 @@ export function localBusinessJsonLd() {
       };
     });
 
+  // Fotos reales del local (barra, interior, espresso, grano) + OG como respaldo.
   const ogImage = getOgImage();
+  const image = [
+    ...getImages(["hero", "interior", "espresso", "grano"]).map(
+      (img) => `${siteConfig.url}${img.src}`,
+    ),
+    ...(ogImage ? [`${siteConfig.url}${ogImage.url}`] : []),
+  ];
+
+  // Comodidades: solo los atributos confirmados (`true` en site.ts), que ya se
+  // muestran en /ubicacion. Sin inferir nada adicional.
+  const at = siteConfig.attributes;
+  const amenityFeature = (
+    [
+      ["Pet friendly (perros con correa)", at.petFriendly],
+      ["Wi-Fi", at.wifi],
+      ["Conexiones eléctricas", at.powerOutlets],
+      ["Para llevar", at.takeaway],
+    ] as const
+  )
+    .filter(([, value]) => value === true)
+    .map(([name]) => ({
+      "@type": "LocationFeatureSpecification",
+      name,
+      value: true,
+    }));
 
   return {
     "@context": "https://schema.org",
     "@type": "CafeOrCoffeeShop",
     name: siteConfig.name,
     url: siteConfig.url,
-    ...(ogImage ? { image: `${siteConfig.url}${ogImage.url}` } : {}),
+    ...(image.length ? { image } : {}),
+    ...(amenityFeature.length ? { amenityFeature } : {}),
     telephone: `+52${siteConfig.contact.phone}`,
     email: siteConfig.contact.email,
     hasMenu: `${siteConfig.url}/menu`,

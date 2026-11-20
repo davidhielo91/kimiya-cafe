@@ -45,7 +45,7 @@ export const metadata: Metadata = {
               url: og.url,
               width: og.width,
               height: og.height,
-              alt: `${siteConfig.name} — café de especialidad en Morelia`,
+              alt: `Barra de ${siteConfig.name} en Morelia con el mural de grafiti y métodos de filtrado`,
             },
           ]
         : undefined;

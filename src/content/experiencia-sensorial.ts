@@ -30,13 +30,14 @@ export type ExpImageKey =
 
 export type ExpImage = { src: string; alt: string };
 
-// Fotos ilustrativas (WebP en /public/images/experiencia-sensorial/). El `alt`
-// describe la escena de forma honesta y nunca afirma que sea el local, un
-// producto o un taller reales de Kimiya Café (DESIGN.md §10.1).
+// Imágenes en /public/images/experiencia-sensorial/. `hero` y `cta` son
+// FOTOGRAFÍAS REALES de Kimiya Café. El resto son ilustraciones conceptuales
+// de sabores y procesos: su `alt` describe la escena y nunca afirma que sea el
+// local, un producto o un taller reales (DESIGN.md §10.1).
 export const expImages: Record<ExpImageKey, ExpImage> = {
   hero: {
-    src: "/images/experiencia-sensorial/hero.webp",
-    alt: "Taza blanca rebosante de granos de café tostado sobre un fondo oscuro.",
+    src: "/images/experiencia-sensorial/granos-cafe-tostado.webp",
+    alt: "Granos de café tostado vistos de cerca en una bandeja oscura, en Kimiya Café.",
   },
   cultivo: {
     src: "/images/experiencia-sensorial/cultivo.webp",
@@ -71,8 +72,8 @@ export const expImages: Record<ExpImageKey, ExpImage> = {
     alt: "Plato de pollo a la parrilla con arroz y verduras asadas.",
   },
   cta: {
-    src: "/images/experiencia-sensorial/cta.webp",
-    alt: "Capuchino con arte latte visto desde arriba sobre una mesa oscura.",
+    src: "/images/experiencia-sensorial/servicio-filtrado-kimiya.webp",
+    alt: "Frasco de café en grano de Kimiya Café junto a una jarra de servir y una taza de vidrio con café filtrado.",
   },
   // Gráfico circular con las familias de sabor ilustradas con ingredientes
   // reales; las etiquetas y el texto central ya vienen incluidos en la imagen.

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { JsonLd } from "@/components/json-ld";
+import { SlotImage } from "@/components/slot-image";
 import { Faq } from "@/components/faq";
 import { localBusinessJsonLd, faqJsonLd, type FaqItem } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
@@ -88,6 +90,20 @@ export default function UbicacionPage() {
             Llamar {contact.phone}
           </a>
         </div>
+
+        <SlotImage
+          slot="interior"
+          sizes="100vw"
+          showCaption
+          figureClassName="mt-12"
+          className="h-72 rounded-lg md:h-[28rem]"
+        />
+        <Link
+          href="/nosotros#el-espacio"
+          className="mt-3 inline-block text-sm font-medium text-brand-ink underline-offset-8 hover:underline"
+        >
+          Ver más fotos del espacio →
+        </Link>
 
         <iframe
           title="Ubicación de Kimiya Café en Google Maps"
