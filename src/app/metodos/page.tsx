@@ -28,7 +28,7 @@ export default function MetodosPage() {
         <SlotImage
           slot="metodos"
           sizes="100vw"
-          className="mb-16 h-64 rounded-lg md:h-96"
+          className="mb-16 aspect-[4/3] rounded-lg md:aspect-[16/9]"
         />
         <ul className="border-t border-black/10">
           {methods.map((method) => (

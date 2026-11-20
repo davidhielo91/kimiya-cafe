@@ -51,7 +51,7 @@ export default function MenuPage() {
         <SlotImage
           slot="espresso"
           sizes="100vw"
-          className="mb-16 h-56 rounded-lg md:h-80"
+          className="mb-16 aspect-[4/3] rounded-lg md:aspect-[16/9]"
         />
         <div className="space-y-16">
           {CATEGORY_ORDER.map((category) => {
