@@ -15,7 +15,7 @@
   --ink-soft: #171514;
   --paper: #ffffff;
   --paper-dim: rgba(255, 255, 255, 0.66);
-  --paper-faint: rgba(255, 255, 255, 0.4);
+  --paper-faint: rgba(255, 255, 255, 0.6); /* ≥4.5:1 sobre --ink (WCAG 1.4.3) */
   --ember: #fc4c02;
   --ember-soft: #ff6a2b;
   --ash: #8a8580;
@@ -224,9 +224,10 @@
     border-color 0.25s;
   cursor: pointer;
 }
+/* Texto oscuro sobre naranja: 5.55:1 (blanco daba 3.4:1, falla WCAG 1.4.3). */
 .btnPrimary {
   background: var(--ember);
-  color: #fff;
+  color: var(--ink);
 }
 .btnPrimary:hover {
   background: var(--ember-soft);
@@ -426,7 +427,7 @@
   margin-top: 9px;
   flex: none;
 }
-.pillar h4 {
+.pillar h3 {
   font-size: 1.16rem;
   font-weight: 600;
 }
@@ -488,7 +489,7 @@
   color: var(--ember);
   font-size: 1.1rem;
 }
-.railItem h4 {
+.railItem h3 {
   font-size: 1.5rem;
   margin: 10px 0 8px;
   font-weight: 700;
@@ -596,7 +597,7 @@
   background: rgba(8, 8, 8, 0.4);
   backdrop-filter: blur(3px);
 }
-.trioItem h4 {
+.trioItem h3 {
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--paper);

@@ -5,6 +5,7 @@ import { siteConfig, isProductionHost } from "@/lib/site";
 import { getOgImage } from "@/content/images";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { SkipLink, MAIN_CONTENT_ID } from "@/components/skip-link";
 import "./globals.css";
 
 // Solo el dominio de producción se indexa. Cualquier otro (preview de Coolify,
@@ -62,6 +63,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${beVietnam.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <SkipLink />
         {/* Google Tag Manager (noscript). Debe ir justo tras abrir <body>. */}
         {isProduction && (
           <noscript>
@@ -75,7 +77,9 @@ export default function RootLayout({
         )}
 
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main id={MAIN_CONTENT_ID} tabIndex={-1} className="flex-1">
+          {children}
+        </main>
         <SiteFooter />
 
         {/* Google Tag Manager (loader). Solo en producción para no contar

@@ -51,7 +51,7 @@ export function SiteFooter() {
         <FooterCol label="Contacto">
           <div className="space-y-5 text-sm">
             <div>
-              <p className="eyebrow text-white/40">Dirección</p>
+              <p className="eyebrow text-white/60">Dirección</p>
               <address className="mt-1.5 not-italic leading-relaxed text-white/80">
                 {address.street}
                 <br />
@@ -70,7 +70,7 @@ export function SiteFooter() {
             </div>
 
             <div>
-              <p className="eyebrow text-white/40">Teléfono</p>
+              <p className="eyebrow text-white/60">Teléfono</p>
               <a
                 href={`tel:+52${contact.phone}`}
                 className="mt-1.5 inline-block text-white/80 hover:text-brand"
@@ -80,7 +80,7 @@ export function SiteFooter() {
             </div>
 
             <div>
-              <p className="eyebrow text-white/40">Correo</p>
+              <p className="eyebrow text-white/60">Correo</p>
               <a
                 href={`mailto:${contact.email}`}
                 className="mt-1.5 inline-block break-all text-white/80 hover:text-brand"
@@ -106,7 +106,7 @@ export function SiteFooter() {
           </dl>
 
           <div className="mt-6">
-            <p className="eyebrow text-white/40">Síguenos</p>
+            <p className="eyebrow text-white/60">Síguenos</p>
             <div className="mt-2 flex gap-4 text-sm">
               <a
                 href={social.instagram}
@@ -131,7 +131,7 @@ export function SiteFooter() {
 
       {/* Barra inferior */}
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-1 py-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-1 py-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos
             reservados.

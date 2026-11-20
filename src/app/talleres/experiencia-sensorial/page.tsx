@@ -210,7 +210,7 @@ export default function ExperienciaSensorialPage() {
               <div key={p.title} className={styles.pillar} data-reveal>
                 <span className={styles.dot} />
                 <div>
-                  <h4>{p.title}</h4>
+                  <h3>{p.title}</h3>
                   <p>{p.text}</p>
                 </div>
               </div>
@@ -240,7 +240,7 @@ export default function ExperienciaSensorialPage() {
                 <div key={p.title} className={styles.pillar} data-reveal>
                   <span className={styles.dot} />
                   <div>
-                    <h4>{p.title}</h4>
+                    <h3>{p.title}</h3>
                     <p>{p.text}</p>
                   </div>
                 </div>
@@ -303,7 +303,7 @@ export default function ExperienciaSensorialPage() {
             {c.trazabilidad.rail.map((r) => (
               <div key={r.idx} className={styles.railItem} data-reveal>
                 <span className={styles.railIdx}>{r.idx}</span>
-                <h4>{r.title}</h4>
+                <h3>{r.title}</h3>
                 <p>{r.text}</p>
               </div>
             ))}
@@ -374,7 +374,7 @@ export default function ExperienciaSensorialPage() {
             <div className={styles.trio}>
               {c.proceso.trio.map((t) => (
                 <div key={t.title} className={styles.trioItem} data-reveal>
-                  <h4>{t.title}</h4>
+                  <h3>{t.title}</h3>
                   <p>{t.text}</p>
                 </div>
               ))}
@@ -468,7 +468,7 @@ export default function ExperienciaSensorialPage() {
                   <div key={d} className={styles.pillar} data-reveal>
                     <span className={styles.dot} />
                     <div>
-                      <h4>{d}</h4>
+                      <h3>{d}</h3>
                     </div>
                   </div>
                 ))}
