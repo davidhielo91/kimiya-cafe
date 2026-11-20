@@ -4,22 +4,28 @@ import { getImage, type ImageSlot } from "@/content/images";
 // Renderiza la imagen de un slot con next/image. Si el archivo aún no está en
 // /public/images/, muestra un placeholder neutral para que el layout se
 // mantenga (DESIGN.md §10.1). El contenedor controla el tamaño; la imagen usa
-// `fill` + object-cover, así cualquier proporción de origen encaja.
+// `fill` + object-cover, así cualquier proporción de origen encaja. Si el slot
+// define `caption` y se pide `showCaption`, se envuelve en <figure> con un pie
+// de foto visible.
 
 export function SlotImage({
   slot,
   sizes,
   priority = false,
   className = "",
+  showCaption = false,
+  figureClassName = "",
 }: {
   slot: ImageSlot;
   sizes: string;
   priority?: boolean;
   className?: string;
+  showCaption?: boolean;
+  figureClassName?: string;
 }) {
   const img = getImage(slot);
 
-  return (
+  const frame = (
     <div className={`relative overflow-hidden bg-muted/10 ${className}`}>
       {img ? (
         <Image
@@ -29,6 +35,7 @@ export function SlotImage({
           sizes={sizes}
           priority={priority}
           className="object-cover"
+          style={img.position ? { objectPosition: img.position } : undefined}
         />
       ) : (
         <span
@@ -39,5 +46,16 @@ export function SlotImage({
         </span>
       )}
     </div>
+  );
+
+  if (!showCaption || !img?.caption) return frame;
+
+  return (
+    <figure className={figureClassName}>
+      {frame}
+      <figcaption className="mt-3 text-sm text-foreground/60">
+        {img.caption}
+      </figcaption>
+    </figure>
   );
 }

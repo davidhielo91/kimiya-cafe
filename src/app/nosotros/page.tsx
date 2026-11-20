@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
+import { SlotImage } from "@/components/slot-image";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -25,6 +26,13 @@ export default function NosotrosPage() {
       <PageHeader eyebrow="Nuestra historia" title="Nosotros" />
 
       <Container className="py-16 md:py-24">
+        <SlotImage
+          slot="mostrador"
+          sizes="100vw"
+          showCaption
+          figureClassName="mb-16"
+          className="h-64 rounded-lg md:h-96"
+        />
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr]">
           <div className="max-w-2xl space-y-6">
             <p className="font-editorial text-3xl leading-snug md:text-4xl">

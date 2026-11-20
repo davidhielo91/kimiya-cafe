@@ -55,6 +55,11 @@ export default function HomePage() {
               priority
               sizes="100vw"
               className="object-cover"
+              style={
+                heroImg.position
+                  ? { objectPosition: heroImg.position }
+                  : undefined
+              }
             />
             {/* Overlay para contraste del texto (accesibilidad). */}
             <div

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { SlotImage } from "@/components/slot-image";
+import type { ImageSlot } from "@/content/images";
 import { menu } from "@/content/menu";
 import { formatPrice } from "@/lib/format";
 import type { MenuCategory } from "@/lib/types";
@@ -32,6 +33,11 @@ const CATEGORY_ORDER: MenuCategory[] = [
   "alimentos",
 ];
 
+// Foto real por categoría (capa de imágenes desacoplada, AGENTS.md §7).
+const CATEGORY_IMAGES: Partial<Record<MenuCategory, ImageSlot>> = {
+  alimentos: "brownie",
+};
+
 export default function MenuPage() {
   return (
     <>
@@ -51,14 +57,26 @@ export default function MenuPage() {
           {CATEGORY_ORDER.map((category) => {
             const items = menu.filter((i) => i.category === category);
             if (items.length === 0) return null;
+            const imageSlot = CATEGORY_IMAGES[category];
             return (
               <section
                 key={category}
                 className="grid gap-8 md:grid-cols-[1fr_2fr]"
               >
-                <h2 className="font-editorial text-2xl md:text-3xl">
-                  {CATEGORY_LABELS[category]}
-                </h2>
+                <div>
+                  <h2 className="font-editorial text-2xl md:text-3xl">
+                    {CATEGORY_LABELS[category]}
+                  </h2>
+                  {imageSlot && (
+                    <SlotImage
+                      slot={imageSlot}
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      showCaption
+                      figureClassName="mt-6"
+                      className="aspect-[4/3] rounded-lg"
+                    />
+                  )}
+                </div>
                 <ul className="border-t border-black/10">
                   {items.map((item) => {
                     const price = formatPrice(item.price);
