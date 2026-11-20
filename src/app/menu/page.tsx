@@ -5,13 +5,13 @@ import { PageHeader } from "@/components/page-header";
 import { SlotImage } from "@/components/slot-image";
 import type { ImageSlot } from "@/content/images";
 import { menu } from "@/content/menu";
+import { menuMeta } from "@/content/page-meta";
 import { formatPrice } from "@/lib/format";
 import type { MenuCategory } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Menú: cold brew, espresso y filtrados",
-  description:
-    "Espresso bar, cold brew, brew bar y postres en Kimiya Café, Morelia. Bebidas de especialidad frías y calientes para descubrir en cada visita.",
+  title: { absolute: menuMeta.title },
+  description: menuMeta.description,
   alternates: { canonical: "/menu" },
 };
 

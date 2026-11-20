@@ -47,6 +47,51 @@ export function weekHours(): HoursRow[] {
   });
 }
 
+const DAY_ORDER = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+] as const;
+
+const DAY_SHORT: Record<(typeof DAY_ORDER)[number], string> = {
+  monday: "lun",
+  tuesday: "mar",
+  wednesday: "mié",
+  thursday: "jue",
+  friday: "vie",
+  saturday: "sáb",
+  sunday: "dom",
+};
+
+/**
+ * Horario compacto para metadata/snippets: agrupa días consecutivos con el
+ * mismo horario ("Lun–vie 08:00–20:00 · dom 08:00–17:00"). Omite días cerrados
+ * y sin confirmar (no publica TODO_CLIENT). Fuente única: siteConfig.hours.
+ */
+export function hoursSummary(): string {
+  const groups: { from: string; to: string; range: string }[] = [];
+  for (const day of DAY_ORDER) {
+    const h = siteConfig.hours[day];
+    if (!h || h === "closed") continue;
+    const range = `${h.open}–${h.close}`;
+    const last = groups[groups.length - 1];
+    const prevDay = DAY_ORDER[DAY_ORDER.indexOf(day) - 1];
+    if (last && last.range === range && last.to === DAY_SHORT[prevDay]) {
+      last.to = DAY_SHORT[day];
+    } else {
+      groups.push({ from: DAY_SHORT[day], to: DAY_SHORT[day], range });
+    }
+  }
+  const text = groups
+    .map((g) => `${g.from === g.to ? g.from : `${g.from}–${g.to}`} ${g.range}`)
+    .join(" · ");
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 /** Precio en MXN o `null`. No inventa precios ausentes. */
 export function formatPrice(value: number | null): string | null {
   if (value === null) return null;
