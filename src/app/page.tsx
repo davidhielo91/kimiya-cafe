@@ -187,13 +187,19 @@ export default function HomePage() {
           experimentamos molienda, agua, tiempo y temperatura.
         </p>
         <p className="font-editorial mt-8 max-w-3xl text-xl leading-relaxed md:text-2xl">
+          {/* Cada nombre no se parte y la línea puede cortar después del
+              separador (<wbr>): sin esto, a 320 px "Origami·Sifón" no tenía
+              punto de corte y desbordaba (WCAG 1.4.10 Reflujo). */}
           {methods.map((m, i) => (
             <span key={m.id}>
-              {m.name}
+              <span className="whitespace-nowrap">{m.name}</span>
               {i < methods.length - 1 && (
-                <span className="mx-2 text-brand-ink" aria-hidden>
-                  ·
-                </span>
+                <>
+                  <span className="mx-2 text-brand-ink" aria-hidden>
+                    ·
+                  </span>
+                  <wbr />
+                </>
               )}
             </span>
           ))}
@@ -210,7 +216,7 @@ export default function HomePage() {
           <SlotImage
             slot="grano"
             sizes="100vw"
-            className="mt-8 h-56 rounded-lg md:h-80"
+            className="mt-8 aspect-[4/3] rounded-lg md:aspect-[2/1]"
           />
           <div className="mt-10 grid gap-10 md:grid-cols-[1.3fr_1fr]">
             <p className="max-w-xl text-foreground/70">

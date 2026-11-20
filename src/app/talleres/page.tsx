@@ -57,7 +57,7 @@ export default function TalleresPage() {
         <SlotImage
           slot="talleres"
           sizes="100vw"
-          className="mb-16 h-64 rounded-lg md:h-96"
+          className="mb-16 aspect-[4/3] rounded-lg md:aspect-[16/9]"
         />
         <div className="space-y-px">
           {workshops.map((w, i) => (

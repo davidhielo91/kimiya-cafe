@@ -61,7 +61,7 @@ export default function CafeEnGranoPage() {
         <SlotImage
           slot="grano"
           sizes="100vw"
-          className="mb-16 h-64 rounded-lg md:h-96"
+          className="mb-16 aspect-[4/3] rounded-lg md:aspect-[16/9]"
         />
         <dl className="grid gap-8 border-b border-black/10 pb-12 sm:grid-cols-3">
           <Fact term="Presentación" value={grainInfo.usualPresentation} />

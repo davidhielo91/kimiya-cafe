@@ -53,12 +53,11 @@ const SLOTS: Record<ImageSlot, SlotDef> = {
   grano: {
     base: "cafe-en-grano-kimiya",
     alt: "Granos de café tostado en una bandeja junto a un frasco con la etiqueta de Kimiya Café.",
-    position: "center 55%",
   },
   metodos: {
     base: "metodo-filtrado-bascula",
     alt: "Gotero de filtrado sobre una jarra de servir y una báscula, entre frascos de café en grano, en la barra de Kimiya Café.",
-    position: "center 45%",
+    position: "center 30%",
   },
   talleres: {
     base: "filtrado-cafe-bloom",
@@ -67,7 +66,7 @@ const SLOTS: Record<ImageSlot, SlotDef> = {
   espresso: {
     base: "maquina-espresso-kimiya-cafe",
     alt: "Máquina de espresso de dos grupos con tazas de vidrio en la barra de Kimiya Café, frente al mural de grafiti.",
-    position: "center 55%",
+    position: "center 60%",
   },
   brownie: {
     base: "brownie-red-velvet-kimiya",
@@ -79,7 +78,7 @@ const SLOTS: Record<ImageSlot, SlotDef> = {
     alt: "Mostrador de Kimiya Café con cafés de tostadores invitados, gotero Origami, frascos de café en grano y vitrina de pan.",
     caption:
       "En la barra: cafés de tostadores con los que trabajamos, listos para llevar.",
-    position: "center 55%",
+    position: "center 30%",
   },
   interior: {
     base: "interior-kimiya-cafe-morelia",

@@ -33,7 +33,7 @@ export default function NosotrosPage() {
           sizes="100vw"
           showCaption
           figureClassName="mb-16"
-          className="h-64 rounded-lg md:h-96"
+          className="aspect-[4/3] rounded-lg md:aspect-[16/9]"
         />
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr]">
           <div className="max-w-2xl space-y-6">

@@ -91,30 +91,35 @@ export default function UbicacionPage() {
           </a>
         </div>
 
-        <SlotImage
-          slot="interior"
-          sizes="100vw"
-          showCaption
-          figureClassName="mt-12"
-          className="h-72 rounded-lg md:h-[28rem]"
-        />
-        <Link
-          href="/nosotros#el-espacio"
-          className="mt-3 inline-block text-sm font-medium text-brand-ink underline-offset-8 hover:underline"
-        >
-          Ver más fotos del espacio →
-        </Link>
+        {/* Foto vertical del interior junto al mapa: en escritorio se ve
+            completa (3:4) en lugar de recortarse en una franja panorámica. */}
+        <div className="mt-12 grid gap-8 md:grid-cols-[2fr_3fr] md:items-stretch">
+          <div>
+            <SlotImage
+              slot="interior"
+              sizes="(min-width: 768px) 40vw, 100vw"
+              showCaption
+              className="aspect-[4/5] rounded-lg md:aspect-[3/4]"
+            />
+            <Link
+              href="/nosotros#el-espacio"
+              className="mt-3 inline-block text-sm font-medium text-brand-ink underline-offset-8 hover:underline"
+            >
+              Ver más fotos del espacio →
+            </Link>
+          </div>
 
-        <iframe
-          title="Ubicación de Kimiya Café en Google Maps"
-          src={`https://www.google.com/maps?q=${encodeURIComponent(
-            formatAddress(),
-          )}&output=embed`}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          allowFullScreen
-          className="mt-12 h-72 w-full rounded-lg border border-black/10 md:h-96"
-        />
+          <iframe
+            title="Ubicación de Kimiya Café en Google Maps"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(
+              formatAddress(),
+            )}&output=embed`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+            className="h-72 w-full rounded-lg border border-black/10 md:h-full md:min-h-96"
+          />
+        </div>
 
         <div className="mt-16 grid gap-12 md:grid-cols-2">
           <section>
