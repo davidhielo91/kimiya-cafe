@@ -8,11 +8,11 @@ import { Faq } from "@/components/faq";
 import { localBusinessJsonLd, faqJsonLd, type FaqItem } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import { formatAddress, weekHours } from "@/lib/format";
+import { ubicacionMeta } from "@/content/page-meta";
 
 export const metadata: Metadata = {
-  title: "Cafetería en El Bulevar García de León, Morelia",
-  description:
-    "Visítanos en el Bulevar García de León (Blvd. García de León 1201-A), Morelia. Wi-Fi, pet friendly y para llevar. Consulta horarios y cómo llegar a Kimiya Café.",
+  title: { absolute: ubicacionMeta.title },
+  description: ubicacionMeta.description,
   alternates: { canonical: "/ubicacion" },
 };
 

@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { formatPrice, weekHours, formatAddress } from "@/lib/format";
+import {
+  formatPrice,
+  weekHours,
+  formatAddress,
+  hoursSummary,
+} from "@/lib/format";
 
 describe("formatPrice", () => {
   it("devuelve null cuando no hay precio (no inventa datos)", () => {
@@ -29,5 +34,11 @@ describe("formatAddress", () => {
     expect(address).toContain("García de León");
     expect(address).toContain("Chapultepec Oriente");
     expect(address).toContain("Morelia");
+  });
+});
+
+describe("hoursSummary", () => {
+  it("agrupa días consecutivos y omite el sábado cerrado", () => {
+    expect(hoursSummary()).toBe("Lun–vie 08:00–20:00 · dom 08:00–17:00");
   });
 });
