@@ -57,10 +57,16 @@ body {
 }
 
 /* Accesibilidad: foco visible consistente (DESIGN.md §13). */
-:where(a, button, summary, [tabindex]):focus-visible {
+:where(a, button, summary, [tabindex]:not(main)):focus-visible {
   outline: 2px solid var(--color-orange);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+/* <main> recibe foco desde "Saltar al contenido" (tabIndex=-1): sin anillo,
+   porque no es un control interactivo. */
+main:focus {
+  outline: none;
 }
 
 /* Entrada sutil del hero (una sola, no scroll-jacking). */

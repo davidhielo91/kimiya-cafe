@@ -10,12 +10,17 @@ import { navItems } from "@/lib/nav";
 export function MobileNav() {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Cerrar con Escape o al tocar fuera del menú.
+  // Cerrar con Escape o al tocar fuera del menú. Con Escape el foco vuelve al
+  // botón: el <nav> se desmonta y, si no, el foco se perdería (WCAG 2.4.3).
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
     };
     const onPointer = (e: PointerEvent) => {
       if (
@@ -36,6 +41,7 @@ export function MobileNav() {
   return (
     <div ref={containerRef} className="relative md:hidden">
       <button
+        ref={buttonRef}
         type="button"
         aria-label={open ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={open}

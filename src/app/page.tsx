@@ -278,7 +278,7 @@ export default function HomePage() {
               sizes="100vw"
               className="object-cover"
             />
-            <div aria-hidden className="absolute inset-0 bg-ink/80" />
+            <div aria-hidden className="absolute inset-0 bg-ink/[0.92]" />
           </>
         )}
         <Container className="relative z-10 py-20 md:py-28">
