@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site";
 import { navItems } from "@/lib/nav";
 import { getImages, ROUTE_IMAGE_SLOTS } from "@/content/images";
 import { expImages } from "@/content/experiencia-sensorial";
+import { gallery } from "@/content/gallery";
 
 // Sitemap de fase 1: homepage + las rutas de navegación aprobadas (SEO.md §3).
 // Incluye las fotos reales de cada ruta (<image:image>) para Google Imágenes:
@@ -20,7 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const srcs =
       path === EXP_PATH
         ? [expImages.hero.src, expImages.cta.src]
-        : getImages(ROUTE_IMAGE_SLOTS[path] ?? []).map((img) => img.src);
+        : [
+            ...getImages(ROUTE_IMAGE_SLOTS[path] ?? []).map((img) => img.src),
+            // Galería "El espacio" de /nosotros.
+            ...(path === "/nosotros" ? gallery.map((p) => p.src) : []),
+          ];
 
     return {
       url: `${siteConfig.url}${path === "/" ? "" : path}`,

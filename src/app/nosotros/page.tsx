@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { SlotImage } from "@/components/slot-image";
+import { Gallery } from "@/components/gallery";
+import { gallery } from "@/content/gallery";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -78,6 +80,15 @@ export default function NosotrosPage() {
               ))}
             </ul>
           </aside>
+        </div>
+
+        <div className="mt-20 border-t border-black/10 pt-16 md:mt-28">
+          <Gallery
+            id="el-espacio"
+            eyebrow="Fotos reales del local"
+            title="El espacio"
+            photos={gallery}
+          />
         </div>
       </Container>
     </>

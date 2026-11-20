@@ -6,7 +6,7 @@ import {
   ROUTE_IMAGE_SLOTS,
 } from "@/content/images";
 import { expImages } from "@/content/experiencia-sensorial";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 describe("capa de imágenes", () => {
@@ -35,6 +35,17 @@ describe("capa de imágenes", () => {
   it("el sitemap de imágenes solo referencia slots válidos", () => {
     for (const slots of Object.values(ROUTE_IMAGE_SLOTS)) {
       for (const slot of slots) expect(IMAGE_SLOTS).toContain(slot);
+    }
+  });
+
+  it("cada foto real lleva metadatos XMP de Kimiya Café con ubicación", () => {
+    for (const slot of IMAGE_SLOTS) {
+      const src = getImage(slot)!.src;
+      const raw = readFileSync(join(process.cwd(), "public", src)).toString(
+        "latin1",
+      );
+      expect(raw, src).toContain("<x:xmpmeta");
+      expect(raw, src).toContain("GPSLatitude");
     }
   });
 
